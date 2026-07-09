@@ -1,0 +1,39 @@
+{
+  "name": "yn-customer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "predev": "node scripts/next-cache.js ensure-dev",
+    "dev:clean": "node scripts/next-cache.js clean && next dev",
+    "build": "next build",
+    "postbuild": "node scripts/next-cache.js note-production",
+    "start": "next start",
+    "clean": "node scripts/next-cache.js clean",
+    "cache:check": "node scripts/next-cache.js check",
+    "cache:clean": "node scripts/next-cache.js clean",
+    "lint": "next lint",
+    "migrate:supabase": "node scripts/migrate-site-content-to-supabase.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.110.2",
+    "@tiptap/extension-highlight": "^3.27.3",
+    "@tiptap/pm": "^3.27.3",
+    "@tiptap/react": "^3.27.3",
+    "@tiptap/starter-kit": "^3.27.3",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
+    "eslint": "^9.27.0",
+    "eslint-config-next": "^15.3.3",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1a2b4a;
+  --color-navy-light: #2a3f66;
+  --color-ivory: #f5f0e8;
+  --color-ivory-dark: #e8e0d4;
+  --color-ocean: #3d6b8e;
+  --color-ocean-light: #5a8fb0;
+  --color-body: #888888;
+  --color-border: #eeeeee;
+  --color-placeholder: #f5f5f5;
+  --color-surface: #fafafa;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  html.yn-welcome-pending #customer-app {
+    visibility: hidden;
+  }
+
+  body {
+    @apply bg-white text-black antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .search-target-highlight {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .guide-rich-content p {
+    margin-bottom: 0.75rem;
+  }
+
+  .guide-rich-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .guide-rich-content ul {
+    margin: 0.5rem 0 0.75rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+
+  .guide-rich-content mark {
+    background-color: #fef08a;
+    color: inherit;
+  }
+
+  .guide-rich-content b,
+  .guide-rich-content strong {
+    font-weight: 700;
+  }
+
+  .guide-rich-content em,
+  .guide-rich-content i {
+    font-style: italic;
+  }
+
+  .tiptap-editor {
+    white-space: pre-wrap;
+  }
+
+  .tiptap-editor p.is-editor-empty:first-child::before {
+    color: color-mix(in srgb, var(--color-body) 50%, transparent);
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+
+  .tiptap-editor mark {
+    background-color: #fef08a;
+    color: inherit;
+  }
+}

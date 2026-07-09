@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Jeju Myeongjo";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url("https://fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff2")
+      format("woff2"),
+    url("https://fonts.gstatic.com/ea/jejumyeongjo/v3/JejuMyeongjo-Regular.woff")
+      format("woff");
+}
+
+.font-welcome {
+  font-family: "Jeju Myeongjo", "Noto Sans KR", serif;
+}

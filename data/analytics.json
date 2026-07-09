@@ -1,0 +1,1027 @@
+{
+  "searchLogs": [],
+  "visitLogs": [
+    {
+      "id": "visit_1783607005092_1a63ukf1",
+      "visitedAt": "2026-07-09T14:23:25.092Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607023596_mzy196nl",
+      "visitedAt": "2026-07-09T14:23:43.596Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607023715_826fb83h",
+      "visitedAt": "2026-07-09T14:23:43.715Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607068418_hdkjvv9c",
+      "visitedAt": "2026-07-09T14:24:28.417Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607526958_swsiotuw",
+      "visitedAt": "2026-07-09T14:32:06.958Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607928370_xsi073eu",
+      "visitedAt": "2026-07-09T14:38:48.370Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607933201_7ezgjbsy",
+      "visitedAt": "2026-07-09T14:38:53.201Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607934390_ku3kcrtf",
+      "visitedAt": "2026-07-09T14:38:54.390Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783607941407_w4am8qxs",
+      "visitedAt": "2026-07-09T14:39:01.407Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783607948554_ci9j72wq",
+      "visitedAt": "2026-07-09T14:39:08.554Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783607956190_03oy5869",
+      "visitedAt": "2026-07-09T14:39:16.190Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783607961704_mvjo73mr",
+      "visitedAt": "2026-07-09T14:39:21.704Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783607968835_2g80wc0i",
+      "visitedAt": "2026-07-09T14:39:28.835Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783608107753_1sa7ij1q",
+      "visitedAt": "2026-07-09T14:41:47.753Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "소개",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608108132_f33nxqy2",
+      "visitedAt": "2026-07-09T14:41:48.132Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608233362_bokiewea",
+      "visitedAt": "2026-07-09T14:43:53.362Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608234983_5jm501s2",
+      "visitedAt": "2026-07-09T14:43:54.983Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608241971_4g78ehgq",
+      "visitedAt": "2026-07-09T14:44:01.971Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608244670_huawsla2",
+      "visitedAt": "2026-07-09T14:44:04.670Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783608256331_ix77xquu",
+      "visitedAt": "2026-07-09T14:44:16.331Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608256457_6vnkn9uc",
+      "visitedAt": "2026-07-09T14:44:16.457Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608257399_1dkh58sh",
+      "visitedAt": "2026-07-09T14:44:17.399Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608257491_jvjrdo7j",
+      "visitedAt": "2026-07-09T14:44:17.491Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608258501_xdwyznb0",
+      "visitedAt": "2026-07-09T14:44:18.501Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608258623_xz0o2r47",
+      "visitedAt": "2026-07-09T14:44:18.623Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608259377_e47najo0",
+      "visitedAt": "2026-07-09T14:44:19.377Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608259478_22x1uisy",
+      "visitedAt": "2026-07-09T14:44:19.478Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608597532_uzafq3dq",
+      "visitedAt": "2026-07-09T14:49:57.532Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608599327_uzj2qwve",
+      "visitedAt": "2026-07-09T14:49:59.327Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608605175_arahnxsl",
+      "visitedAt": "2026-07-09T14:50:05.175Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783608665301_odp1ppcy",
+      "visitedAt": "2026-07-09T14:51:05.301Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "소개",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608665393_yrmkta6i",
+      "visitedAt": "2026-07-09T14:51:05.393Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783608866303_gfixyrgu",
+      "visitedAt": "2026-07-09T14:54:26.303Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783609242040_xdswbd6s",
+      "visitedAt": "2026-07-09T15:00:42.040Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783609246338_cqz2gnwo",
+      "visitedAt": "2026-07-09T15:00:46.338Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783609263936_47sfwmo8",
+      "visitedAt": "2026-07-09T15:01:03.936Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "소개",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783609264061_9422std9",
+      "visitedAt": "2026-07-09T15:01:04.061Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783609361777_9hvn5p2h",
+      "visitedAt": "2026-07-09T15:02:41.777Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783609765494_volzv66u",
+      "visitedAt": "2026-07-09T15:09:25.494Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783609769024_e0vbl5fg",
+      "visitedAt": "2026-07-09T15:09:29.024Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783609783666_o676bfrd",
+      "visitedAt": "2026-07-09T15:09:43.666Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783609803834_hat7sq0a",
+      "visitedAt": "2026-07-09T15:10:03.834Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783609851247_b0phsxib",
+      "visitedAt": "2026-07-09T15:10:51.247Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/contact"
+    },
+    {
+      "id": "visit_1783609862128_kvjw0u9e",
+      "visitedAt": "2026-07-09T15:11:02.128Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783609862593_eit0ztwr",
+      "visitedAt": "2026-07-09T15:11:02.593Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783609869815_r1azos1c",
+      "visitedAt": "2026-07-09T15:11:09.815Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783610022986_kfnn2non",
+      "visitedAt": "2026-07-09T15:13:42.986Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783610133432_8fb9sezx",
+      "visitedAt": "2026-07-09T15:15:33.432Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "손질법",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610135063_qx8wskl8",
+      "visitedAt": "2026-07-09T15:15:35.063Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "보관법",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610136792_odp2dwiv",
+      "visitedAt": "2026-07-09T15:15:36.792Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "자주묻는 질문",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610137398_pmuxbx4z",
+      "visitedAt": "2026-07-09T15:15:37.398Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/faq",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610165184_7js76mhk",
+      "visitedAt": "2026-07-09T15:16:05.184Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610166261_68th5sve",
+      "visitedAt": "2026-07-09T15:16:06.261Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "보관법",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610168050_h20q16fd",
+      "visitedAt": "2026-07-09T15:16:08.049Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "손질법",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610168885_h656jweg",
+      "visitedAt": "2026-07-09T15:16:08.885Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610169138_gt8wa3nx",
+      "visitedAt": "2026-07-09T15:16:09.138Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610173363_n33kjnka",
+      "visitedAt": "2026-07-09T15:16:13.363Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "menu_click",
+      "page": "/",
+      "menuLabel": "보관법",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610175732_6a7qnwrj",
+      "visitedAt": "2026-07-09T15:16:15.732Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783610177400_24lkdewu",
+      "visitedAt": "2026-07-09T15:16:17.400Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610177534_v9pw7cj4",
+      "visitedAt": "2026-07-09T15:16:17.534Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610178568_2ye68ocf",
+      "visitedAt": "2026-07-09T15:16:18.568Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610178683_ld9e2r4k",
+      "visitedAt": "2026-07-09T15:16:18.683Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610178956_kmmxcgib",
+      "visitedAt": "2026-07-09T15:16:18.956Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783610185378_53uetta0",
+      "visitedAt": "2026-07-09T15:16:25.378Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783610241773_41hve3t5",
+      "visitedAt": "2026-07-09T15:17:21.773Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610247067_suxkggpp",
+      "visitedAt": "2026-07-09T15:17:27.067Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783610262223_jsd51ccg",
+      "visitedAt": "2026-07-09T15:17:42.223Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783610433094_u28vgsb6",
+      "visitedAt": "2026-07-09T15:20:33.093Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783610509446_iwhe207s",
+      "visitedAt": "2026-07-09T15:21:49.446Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783611444458_apmvr8p4",
+      "visitedAt": "2026-07-09T15:37:24.458Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783611454249_hu8z8ggb",
+      "visitedAt": "2026-07-09T15:37:34.249Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783611456461_y149ophq",
+      "visitedAt": "2026-07-09T15:37:36.461Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783611456620_tv0ou4z0",
+      "visitedAt": "2026-07-09T15:37:36.620Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783611863405_0msg24mo",
+      "visitedAt": "2026-07-09T15:44:23.405Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783611875167_i7ki1p41",
+      "visitedAt": "2026-07-09T15:44:35.167Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783611887582_v1qs76kn",
+      "visitedAt": "2026-07-09T15:44:47.582Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783611894495_qv58r1ff",
+      "visitedAt": "2026-07-09T15:44:54.495Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783611901737_i8x5tenu",
+      "visitedAt": "2026-07-09T15:45:01.737Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783611916332_vcr4b0jk",
+      "visitedAt": "2026-07-09T15:45:16.332Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783612724660_vgqytkua",
+      "visitedAt": "2026-07-09T15:58:44.660Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783613442699_h1t3ho82",
+      "visitedAt": "2026-07-09T16:10:42.699Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783613800489_ebz6hma1",
+      "visitedAt": "2026-07-09T16:16:40.489Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783613875772_lk7ppv2k",
+      "visitedAt": "2026-07-09T16:17:55.772Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783613917289_0dps83bf",
+      "visitedAt": "2026-07-09T16:18:37.289Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783614113721_qgnzytl7",
+      "visitedAt": "2026-07-09T16:21:53.721Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783614115614_qhh1nn0g",
+      "visitedAt": "2026-07-09T16:21:55.613Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783614118846_mq1dblq4",
+      "visitedAt": "2026-07-09T16:21:58.846Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783614126687_yinpgkij",
+      "visitedAt": "2026-07-09T16:22:06.687Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783614130866_h4oz8aff",
+      "visitedAt": "2026-07-09T16:22:10.866Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783614131786_0d5t2l1z",
+      "visitedAt": "2026-07-09T16:22:11.786Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://192.168.219.121:3000/"
+    },
+    {
+      "id": "visit_1783614488005_6zjm1rfb",
+      "visitedAt": "2026-07-09T16:28:08.005Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783614517265_q3dq6kvr",
+      "visitedAt": "2026-07-09T16:28:37.265Z",
+      "sessionId": "sess_1783614516919_bbvaxnja",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783614728130_3chxdvmk",
+      "visitedAt": "2026-07-09T16:32:08.130Z",
+      "sessionId": "sess_1783614516919_bbvaxnja",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783615091489_y99u9n4o",
+      "visitedAt": "2026-07-09T16:38:11.489Z",
+      "sessionId": "sess_1783614516919_bbvaxnja",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783615097603_484u0sz5",
+      "visitedAt": "2026-07-09T16:38:17.603Z",
+      "sessionId": "sess_1783607941387_t1fzsi0i",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783615113721_t0hb9mcs",
+      "visitedAt": "2026-07-09T16:38:33.721Z",
+      "sessionId": "sess_1783614516919_bbvaxnja",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783615259008_h7ervq2m",
+      "visitedAt": "2026-07-09T16:40:59.008Z",
+      "sessionId": "sess_1783614516919_bbvaxnja",
+      "eventType": "page_view",
+      "page": "/"
+    },
+    {
+      "id": "visit_1783615270515_xtu4zmcd",
+      "visitedAt": "2026-07-09T16:41:10.515Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783615842015_k38pzmb9",
+      "visitedAt": "2026-07-09T16:50:42.015Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783615862021_15e994rl",
+      "visitedAt": "2026-07-09T16:51:02.021Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616633619_crf3qmy7",
+      "visitedAt": "2026-07-09T17:03:53.619Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616636560_ufg2a6yw",
+      "visitedAt": "2026-07-09T17:03:56.560Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616647045_pk78t14n",
+      "visitedAt": "2026-07-09T17:04:07.045Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "category_click",
+      "page": "/",
+      "categoryLabel": "참문어 손질법",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616647932_khyt9udc",
+      "visitedAt": "2026-07-09T17:04:07.932Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/seafood/octopus/cleaning",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616647937_ux74d663",
+      "visitedAt": "2026-07-09T17:04:07.937Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/octopus/cleaning",
+      "categoryLabel": "손질법 상세",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616674887_npwf284s",
+      "visitedAt": "2026-07-09T17:04:34.887Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/seafood/octopus/storage",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616674892_7qxtltx8",
+      "visitedAt": "2026-07-09T17:04:34.892Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/octopus/storage",
+      "categoryLabel": "보관법 상세",
+      "categoryType": "storage",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616683220_s20tq6tp",
+      "visitedAt": "2026-07-09T17:04:43.220Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/octopus/cleaning",
+      "categoryLabel": "손질법 상세",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616684439_jnvnj0bf",
+      "visitedAt": "2026-07-09T17:04:44.439Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "menu_click",
+      "page": "/seafood/octopus/cleaning",
+      "menuLabel": "홈",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616684550_ebepmbhy",
+      "visitedAt": "2026-07-09T17:04:44.550Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616686338_82w4xt6z",
+      "visitedAt": "2026-07-09T17:04:46.338Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "category_click",
+      "page": "/",
+      "categoryLabel": "반건조 생선 손질법",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616686500_k8m24rpu",
+      "visitedAt": "2026-07-09T17:04:46.500Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/semi-dried/cleaning",
+      "categoryLabel": "손질법 상세",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616688043_8xbkgd27",
+      "visitedAt": "2026-07-09T17:04:48.043Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/seafood/semi-dried/storage",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616688047_4eea23dn",
+      "visitedAt": "2026-07-09T17:04:48.047Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/semi-dried/storage",
+      "categoryLabel": "보관법 상세",
+      "categoryType": "storage",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616693697_aoj4d44d",
+      "visitedAt": "2026-07-09T17:04:53.697Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/seafood/semi-dried/cleaning",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616693702_aad1e42s",
+      "visitedAt": "2026-07-09T17:04:53.702Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/semi-dried/cleaning",
+      "categoryLabel": "손질법 상세",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616702633_6s5yxzbq",
+      "visitedAt": "2026-07-09T17:05:02.633Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616709349_6joysdou",
+      "visitedAt": "2026-07-09T17:05:09.349Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "category_click",
+      "page": "/",
+      "categoryLabel": "참문어 손질법",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616709425_2ue72wy3",
+      "visitedAt": "2026-07-09T17:05:09.425Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/seafood/octopus/cleaning",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616709480_9q51pjmh",
+      "visitedAt": "2026-07-09T17:05:09.480Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/octopus/cleaning",
+      "categoryLabel": "손질법 상세",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616710568_vx17ik5v",
+      "visitedAt": "2026-07-09T17:05:10.568Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/seafood/octopus/storage",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616710574_w1ob0gvu",
+      "visitedAt": "2026-07-09T17:05:10.574Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "section_view",
+      "page": "/seafood/octopus/storage",
+      "categoryLabel": "보관법 상세",
+      "categoryType": "storage",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616713353_x1n1ijdl",
+      "visitedAt": "2026-07-09T17:05:13.353Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "menu_click",
+      "page": "/seafood/octopus/storage",
+      "menuLabel": "홈",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783616713473_2l27g9kp",
+      "visitedAt": "2026-07-09T17:05:13.473Z",
+      "sessionId": "sess_1783607004632_65n2zsjs",
+      "eventType": "page_view",
+      "page": "/",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783617162677_mfphonmo",
+      "visitedAt": "2026-07-09T17:12:42.677Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "category_click",
+      "page": "/",
+      "categoryLabel": "과메기 손질법",
+      "categoryType": "handling",
+      "referrer": "http://localhost:3000/"
+    },
+    {
+      "id": "visit_1783617188464_d9x2qw79",
+      "visitedAt": "2026-07-09T17:13:08.464Z",
+      "sessionId": "sess_1783607004637_pyx8xkni",
+      "eventType": "page_view",
+      "page": "/seafood/gwamegi/cleaning",
+      "referrer": "http://localhost:3000/seafood/gwamegi/cleaning"
+    }
+  ],
+  "conversionLogs": []
+}p://localhost:3000/seafood/gwamegi/cleaning"
+    }
+  ],
+  "conversionLogs": []
+}

@@ -1,0 +1,41 @@
+---
+description: Next.js .next 캐시 관리 및 dev 서버 안정화 규칙
+alwaysApply: true
+---
+
+# Next.js Dev Cache Management
+
+## 목적
+
+`.next` 캐시 손상으로 `Cannot find module './NNN.js'` Runtime Error가 발생하지 않도록 개발 환경을 안정적으로 유지합니다.
+
+## 개발 서버 실행
+
+- 로컬 개발은 **`npm run dev`** 만 사용합니다.
+- `npm run dev` 실행 전 `predev` 훅이 `scripts/next-cache.js ensure-dev`를 자동 실행합니다.
+- 사용자에게 **수동 `rm -rf .next`를 요청하지 않습니다.** 문제 시 `npm run dev:clean` 또는 `npm run cache:clean` 후 `npm run dev`를 안내합니다.
+- **`npm run dev`를 대신 실행하지 않습니다.** (사용자 규칙)
+
+## 빌드와 dev 혼용 금지
+
+- `npm run build`와 `npm run dev`를 **동시에 실행하지 않습니다.**
+- `npm run build` 후 dev로 돌아갈 때는 `npm run dev`만 실행합니다. (`BUILD_ID`가 있으면 predev가 자동 정리)
+- Internal Server Error / `MODULE_NOT_FOUND` / `routes-manifest.json` 누락이 보이면 코드 버그로 단정하지 말고 **캐시 상태를 먼저 확인**합니다.
+
+## 캐시 관련 스크립트
+
+| 명령 | 용도 |
+|------|------|
+| `npm run dev` | predev 자동 검사 후 dev 서버 시작 |
+| `npm run dev:clean` | 캐시 강제 삭제 후 dev 시작 |
+| `npm run cache:check` | 캐시 상태만 검사 |
+| `npm run cache:clean` | `.next` 삭제 |
+| `npm run clean` | `cache:clean`과 동일 |
+
+## 코드 수정 후
+
+- 컴포넌트/페이지 추가·수정 후 500 에러가 나면:
+  1. 터미널에서 chunk 누락(`./331.js` 등) 로그 확인
+  2. `npm run cache:check` 결과 확인
+  3. 필요 시 `npm run dev:clean` 안내
+- 캐시 이슈가 아닌 경우에만 애플리케이션 코드를 수정합니다.
