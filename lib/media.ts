@@ -15,9 +15,22 @@ const ALLOWED_MEDIA_EXTENSIONS = new Set([
 
 export function isVideoMedia(src?: string): boolean {
   if (!src) return false;
-  const path = src.split("?")[0].split("#")[0];
+  // blob:…#photo.mov — hash carries the original filename for type detection
+  const hashName = src.includes("#")
+    ? decodeURIComponent(src.slice(src.indexOf("#") + 1))
+    : "";
+  const path = (hashName || src).split("?")[0].split("#")[0];
   const ext = path.slice(path.lastIndexOf(".")).toLowerCase();
   return VIDEO_EXTENSIONS.has(ext);
+}
+
+/** Strip filename hash from blob preview URLs for <img>/<video src>. */
+export function resolveMediaDisplaySrc(src?: string): string | undefined {
+  if (!src) return undefined;
+  if (src.startsWith("blob:") && src.includes("#")) {
+    return src.slice(0, src.indexOf("#"));
+  }
+  return src;
 }
 
 export function isAllowedMediaFile(filename: string, mimeType?: string): boolean {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SeafoodListCard from "@/components/SeafoodListCard";
 import { getSiteContent } from "@/data/content";
+import { resolveStorageListCardImage } from "@/lib/guide-display";
 import { getVisibleHomeStoragePreviews } from "@/lib/home-card-sync";
 import { getSeafoodGuidePath, resolveSeafoodSlug } from "@/lib/seafood-guide";
 
@@ -20,7 +21,7 @@ export default async function StorageGuidePage() {
           key={preview.id}
           name={preview.name}
           imageLabel={preview.imageLabel}
-          imageUrl={preview.imageUrl}
+          imageUrl={resolveStorageListCardImage(preview, content.storageGuides)}
           subtitle="보관법"
           href={getSeafoodGuidePath(resolveSeafoodSlug(preview), "storage")}
         />

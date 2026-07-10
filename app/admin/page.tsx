@@ -15,7 +15,13 @@ import GuideTemplatesAdminSection from "@/components/admin/GuideTemplatesAdminSe
 import SearchAnalyticsPanel from "@/components/admin/SearchAnalyticsPanel";
 import VisitorAnalyticsPanel from "@/components/admin/VisitorAnalyticsPanel";
 import type { HomeSectionId, SiteContent } from "@/lib/types";
-import { isVideoMedia } from "@/lib/media";
+import { isVideoMedia, resolveMediaDisplaySrc } from "@/lib/media";
+import {
+  compressImageFile,
+  createMediaPreviewUrl,
+  formatBytes,
+  shouldCompressImageFile,
+} from "@/lib/compress-image";
 
 type SectionKey =
   | "site"
@@ -62,22 +68,129 @@ export default function AdminPage() {
       });
   }, []);
 
+  const handleLogout = async () => {
+    await fetch("/api/admin/logout", { method: "POST" });
+    router.push("/admin/login");
+    router.refresh();
+  };
+
+  const pendingUploadsRef = useRef(new Set<Promise<void>>());
+
+  /**
+   * Optimistic preview (object URL) → optional image compress → Storage upload.
+   * Callers receive preview URL immediately, then the final Storage URL.
+   */
+  const uploadImage = (file: File, onUploaded: (url: string) => void) => {
+    const { objectUrl, previewUrl } = createMediaPreviewUrl(file);
+    onUploaded(previewUrl);
+
+    const task = (async () => {
+      const totalStarted = performance.now();
+      let compressMs = 0;
+      let uploadMs = 0;
+      let originalBytes = file.size;
+      let uploadBytes = file.size;
+      let uploadFile = file;
+      let compressNote = `원본 유지 ${formatBytes(file.size)}`;
+
+      try {
+        if (shouldCompressImageFile(file)) {
+          const compressed = await compressImageFile(file);
+          compressMs = compressed.compressMs;
+          originalBytes = compressed.originalBytes;
+          uploadFile = compressed.file;
+          uploadBytes = compressed.compressedBytes;
+          compressNote = compressed.skipped
+            ? `건너뜀 ${formatBytes(originalBytes)}`
+            : `${formatBytes(originalBytes)} → ${formatBytes(uploadBytes)}`;
+        }
+
+        const uploadStarted = performance.now();
+        const formData = new FormData();
+        formData.append("file", uploadFile);
+
+        const response = await fetch("/api/admin/upload", {
+          method: "POST",
+          body: formData,
+        });
+        uploadMs = Math.round(performance.now() - uploadStarted);
+
+        if (!response.ok) {
+          console.error(`[upload] Storage 업로드 실패 ${uploadMs}ms`);
+          return;
+        }
+
+        const data = (await response.json()) as { url?: string };
+        if (!data.url) {
+          console.error("[upload] Storage 응답에 url이 없습니다.");
+          return;
+        }
+
+        onUploaded(data.url);
+
+        const totalMs = Math.round(performance.now() - totalStarted);
+        console.log(
+          [
+            "이미지 압축",
+            `${compressMs}ms (${compressNote})`,
+            "",
+            "Storage 업로드",
+            `${uploadMs}ms (${formatBytes(uploadBytes)})`,
+            "",
+            "총",
+            `${totalMs}ms`,
+          ].join("\n")
+        );
+      } catch (error) {
+        console.error("[upload] 실패", error);
+      } finally {
+        URL.revokeObjectURL(objectUrl);
+      }
+    })();
+
+    pendingUploadsRef.current.add(task);
+    void task.finally(() => {
+      pendingUploadsRef.current.delete(task);
+    });
+  };
+
   const handleSave = async () => {
     const latest = contentRef.current;
     if (!latest) return;
     setSaving(true);
     setMessage("");
 
+    if (pendingUploadsRef.current.size > 0) {
+      setMessage("미디어 업로드 완료 대기 중...");
+      await Promise.all([...pendingUploadsRef.current]);
+    }
+
+    // Re-read after uploads may have patched contentRef
+    const toSave = contentRef.current;
+    if (!toSave) {
+      setSaving(false);
+      return;
+    }
+
+    // Reject save if any blob: preview URLs remain (upload failed/incomplete)
+    const blobUrls = collectBlobMediaUrls(toSave);
+    if (blobUrls.length > 0) {
+      setMessage(
+        "업로드가 끝나지 않은 미디어가 있습니다. 잠시 후 다시 저장해 주세요."
+      );
+      setSaving(false);
+      return;
+    }
+
     const response = await fetch("/api/admin/content", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(latest),
+      body: JSON.stringify(toSave),
     });
 
     const data = await response.json().catch(() => ({}));
 
     if (response.ok) {
-      // Confirm DB write by reloading — matches what customer pages will read.
       const refreshed = await fetch("/api/admin/content")
         .then((res) => res.json())
         .catch(() => null);
@@ -97,26 +210,6 @@ export default function AdminPage() {
     }
 
     setSaving(false);
-  };
-
-  const handleLogout = async () => {
-    await fetch("/api/admin/logout", { method: "POST" });
-    router.push("/admin/login");
-    router.refresh();
-  };
-
-  const uploadImage = async (file: File, onUploaded: (url: string) => void) => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const response = await fetch("/api/admin/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!response.ok) return;
-    const data = await response.json();
-    onUploaded(data.url);
   };
 
   if (!content) {
@@ -592,14 +685,18 @@ function MediaUploadField({
       {mediaUrl &&
         (isVideoMedia(mediaUrl) ? (
           <video
-            src={mediaUrl}
+            src={resolveMediaDisplaySrc(mediaUrl)}
             controls
             playsInline
             className="mb-2 h-40 w-full rounded-xl bg-black object-contain"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={mediaUrl} alt={label} className="mb-2 h-40 w-full rounded-xl object-cover" />
+          <img
+            src={resolveMediaDisplaySrc(mediaUrl)}
+            alt={label}
+            className="mb-2 h-40 w-full rounded-xl object-cover"
+          />
         ))}
       <input
         type="file"
@@ -612,5 +709,23 @@ function MediaUploadField({
       />
     </div>
   );
+}
+
+function collectBlobMediaUrls(content: SiteContent): string[] {
+  const urls: string[] = [];
+  const push = (url?: string) => {
+    if (url?.startsWith("blob:")) urls.push(url);
+  };
+
+  for (const slide of content.heroSlides) push(slide.imageUrl);
+  for (const preview of content.productPreviews) push(preview.imageUrl);
+  for (const preview of content.handlingPreviews) push(preview.imageUrl);
+  for (const guide of content.storageGuides) push(guide.imageUrl);
+  for (const guide of content.eatingGuides) push(guide.imageUrl);
+  push(content.pageImages.contactHero);
+  push(content.pageImages.storageHero);
+  push(content.pageImages.howToEatHero);
+
+  return urls;
 }
 

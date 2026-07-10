@@ -23,7 +23,7 @@ import {
   instantiateGuideTemplate,
 } from "@/lib/guide-templates";
 import { openGuidePreview } from "@/lib/guide-preview";
-import { isVideoMedia } from "@/lib/media";
+import { isVideoMedia, resolveMediaDisplaySrc } from "@/lib/media";
 import { getSeafoodGuidePath, resolveSeafoodSlug } from "@/lib/seafood-guide";
 import type {
   EatingGuide,
@@ -230,7 +230,7 @@ function ImageUploadField({
       {imageUrl ? (
         isVideo ? (
           <video
-            src={imageUrl}
+            src={resolveMediaDisplaySrc(imageUrl)}
             className="max-h-40 rounded-xl border border-border"
             controls
             playsInline
@@ -239,7 +239,11 @@ function ImageUploadField({
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={imageUrl} alt="" className="max-h-40 rounded-xl border border-border" />
+          <img
+            src={resolveMediaDisplaySrc(imageUrl)}
+            alt=""
+            className="max-h-40 rounded-xl border border-border"
+          />
         )
       ) : null}
       <div className="flex flex-wrap items-center gap-2">

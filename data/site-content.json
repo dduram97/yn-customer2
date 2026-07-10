@@ -400,6 +400,7 @@
       ],
       "summary": "",
       "thawing": "",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783705538156-kb9o8vkm4t8.GIF",
       "isVisible": false,
       "eatingOrder": [],
       "preparation": "",
@@ -477,8 +478,8 @@
       ],
       "summary": "삶거나 숙회로 즐기는 포항의 별미",
       "thawing": "냉장실에서 6~8시간 해동",
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783703076095-w558g4lfyb7.jpeg",
-      "heroMuted": false,
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783706037000-sidzlhfbjsm.MOV",
+      "heroMuted": true,
       "isVisible": true,
       "eatingOrder": [
         "깨끗이 씻어 삶기 (30~40분)",
@@ -718,6 +719,7 @@
         "직사광선 피해 보관",
         "해동 후 당일 섭취 권장"
       ],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783706986939-jr5r5yckfsn.webp",
       "shelfLife": "냉동 3개월",
       "temperature": "냉동",
       "storageMethod": "밀봉 후 냉동 보관",
@@ -769,7 +771,8 @@
         "냄새가 이상하면 섭취 금지",
         "조리 전 충분히 씻어 사용"
       ],
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783696475864-8kqrxl6l0gd.gif",
+      "imageUrl": "",
+      "heroMuted": false,
       "shelfLife": "냉장 2~3일 / 냉동 1개월",
       "temperature": "냉장/냉동",
       "storageMethod": "비닐에 밀봉 후 냉장 또는 냉동",
@@ -888,6 +891,7 @@
         "조리 전 솔로 껍데기 닦기"
       ],
       "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783697101778-jbn0xwf807d.MOV",
+      "heroMuted": true,
       "shelfLife": "냉장 2~3일",
       "temperature": "냉장",
       "storageMethod": "젖은 천으로 덮어 냉장 보관",
