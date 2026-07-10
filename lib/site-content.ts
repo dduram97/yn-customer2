@@ -1,4 +1,8 @@
 import {
+  ensureEatingGuidesForPreviews,
+  ensureStorageGuidesForPreviews,
+} from "@/lib/guide-preview-sync";
+import {
   getDefaultEatingGuideTemplates,
   getDefaultStorageGuideTemplates,
 } from "@/lib/guide-templates";
@@ -241,8 +245,19 @@ export const DEFAULT_SITE_CONTENT: SiteContent = {
 };
 
 export function normalizeSiteContent(content: SiteContent): SiteContent {
+  const eatingGuides = ensureEatingGuidesForPreviews(
+    content.handlingPreviews,
+    content.eatingGuides
+  );
+  const storageGuides = ensureStorageGuidesForPreviews(
+    content.productPreviews,
+    content.storageGuides
+  );
+
   return {
     ...content,
+    eatingGuides,
+    storageGuides,
     contactInfo: {
       ...content.contactInfo,
       description: normalizeMultilineText(content.contactInfo.description),

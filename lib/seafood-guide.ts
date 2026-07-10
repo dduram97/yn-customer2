@@ -11,8 +11,9 @@ import type {
 
 export type SeafoodGuideKind = "storage" | "cleaning";
 
+/** Customer links and guide keys use each preview's unique id. */
 export function resolveSeafoodSlug(preview: ProductPreview): string {
-  return preview.anchorId ?? preview.id;
+  return preview.id;
 }
 
 export function getSeafoodGuidePath(
@@ -36,10 +37,7 @@ export function findHandlingPreviewBySlug(
   slug: string
 ): ProductPreview | undefined {
   return content.handlingPreviews.find(
-    (preview) =>
-      preview.id === slug ||
-      preview.anchorId === slug ||
-      resolveSeafoodSlug(preview) === slug
+    (preview) => preview.id === slug || preview.anchorId === slug
   );
 }
 
@@ -53,12 +51,7 @@ export function findStorageGuideBySlug(
   const preview = findStoragePreviewBySlug(content, slug);
   if (!preview) return undefined;
 
-  return content.storageGuides.find(
-    (guide) =>
-      guide.id === preview.id ||
-      guide.id === preview.anchorId ||
-      guide.name === preview.name
-  );
+  return content.storageGuides.find((guide) => guide.id === preview.id);
 }
 
 export function findEatingGuideBySlug(
@@ -71,12 +64,7 @@ export function findEatingGuideBySlug(
   const preview = findHandlingPreviewBySlug(content, slug);
   if (!preview) return undefined;
 
-  return content.eatingGuides.find(
-    (guide) =>
-      guide.id === preview.id ||
-      guide.id === preview.anchorId ||
-      guide.name === preview.name
-  );
+  return content.eatingGuides.find((guide) => guide.id === preview.id);
 }
 
 /** @deprecated Use getVisibleHomeStoragePreviews from home-card-sync */

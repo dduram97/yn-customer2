@@ -72,10 +72,7 @@ function findHandlingPreview(
   guide: EatingGuide
 ): ProductPreview | undefined {
   return previews.find(
-    (preview) =>
-      preview.anchorId === guide.id ||
-      preview.id === guide.id ||
-      preview.name === guide.name
+    (preview) => preview.id === guide.id || preview.name === guide.name
   );
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import MultilineText from "@/components/MultilineText";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -41,9 +42,7 @@ export default function FaqItem({ id, question, answer }: FaqItemProps) {
           +
         </span>
       </button>
-      {open && (
-        <p className="pb-4 text-[16px] leading-relaxed text-body">{answer}</p>
-      )}
+      {open && <MultilineText text={answer} className="pb-4" />}
     </div>
   );
 }

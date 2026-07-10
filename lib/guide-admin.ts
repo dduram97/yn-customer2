@@ -1,6 +1,5 @@
 import { hasMeaningfulCustomBlocks, hasMeaningfulCustomSteps } from "@/lib/guide-content";
 import { stripHtml } from "@/lib/rich-text";
-import { resolveSeafoodSlug } from "@/lib/seafood-guide";
 import type { EatingGuide, ProductPreview, StorageGuide } from "@/lib/types";
 
 export type GuideContentStatus = "complete" | "needs-content";
@@ -13,30 +12,14 @@ function findEatingGuideIndex(
   guides: EatingGuide[],
   preview: ProductPreview
 ): number {
-  const slug = resolveSeafoodSlug(preview);
-
-  const bySlug = guides.findIndex((guide) => guide.id === slug);
-  if (bySlug >= 0) return bySlug;
-
-  const byPreviewId = guides.findIndex((guide) => guide.id === preview.id);
-  if (byPreviewId >= 0) return byPreviewId;
-
-  return guides.findIndex((guide) => guide.name === preview.name);
+  return guides.findIndex((guide) => guide.id === preview.id);
 }
 
 function findStorageGuideIndex(
   guides: StorageGuide[],
   preview: ProductPreview
 ): number {
-  const slug = resolveSeafoodSlug(preview);
-
-  const bySlug = guides.findIndex((guide) => guide.id === slug);
-  if (bySlug >= 0) return bySlug;
-
-  const byPreviewId = guides.findIndex((guide) => guide.id === preview.id);
-  if (byPreviewId >= 0) return byPreviewId;
-
-  return guides.findIndex((guide) => guide.name === preview.name);
+  return guides.findIndex((guide) => guide.id === preview.id);
 }
 
 export function resolveEatingGuideForPreview(
@@ -57,7 +40,7 @@ export function resolveStorageGuideForPreview(
 
 export function createEmptyEatingGuide(preview: ProductPreview): EatingGuide {
   return {
-    id: resolveSeafoodSlug(preview),
+    id: preview.id,
     name: preview.name,
     emoji: "🐟",
     summary: "",
@@ -72,7 +55,7 @@ export function createEmptyEatingGuide(preview: ProductPreview): EatingGuide {
 
 export function createEmptyStorageGuide(preview: ProductPreview): StorageGuide {
   return {
-    id: resolveSeafoodSlug(preview),
+    id: preview.id,
     name: preview.name,
     emoji: "🐟",
     summary: "",
@@ -95,11 +78,11 @@ export function upsertEatingGuide(
   const index = findEatingGuideIndex(next, preview);
 
   if (index >= 0) {
-    next[index] = { ...next[index], ...patch };
+    next[index] = { ...next[index], ...patch, id: preview.id, name: preview.name };
     return next;
   }
 
-  next.push({ ...createEmptyEatingGuide(preview), ...patch });
+  next.push({ ...createEmptyEatingGuide(preview), ...patch, id: preview.id, name: preview.name });
   return next;
 }
 
@@ -112,11 +95,11 @@ export function upsertStorageGuide(
   const index = findStorageGuideIndex(next, preview);
 
   if (index >= 0) {
-    next[index] = { ...next[index], ...patch };
+    next[index] = { ...next[index], ...patch, id: preview.id, name: preview.name };
     return next;
   }
 
-  next.push({ ...createEmptyStorageGuide(preview), ...patch });
+  next.push({ ...createEmptyStorageGuide(preview), ...patch, id: preview.id, name: preview.name });
   return next;
 }
 

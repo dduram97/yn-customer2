@@ -18,7 +18,7 @@ function decodeJwtRole(key: string): string | null {
 }
 
 function assertServiceRoleKey(serviceRoleKey: string): void {
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const anonKey = readEnv("NEXT_PUBLIC_SUPABASE_ANON_KEY");
 
   if (anonKey && serviceRoleKey === anonKey) {
     throw new Error(
@@ -34,17 +34,21 @@ function assertServiceRoleKey(serviceRoleKey: string): void {
   }
 }
 
+function readEnv(name: string): string | undefined {
+  const value = process.env[name]?.trim();
+  return value || undefined;
+}
+
 export function isSupabaseConfigured(): boolean {
   return Boolean(
-    process.env.NEXT_PUBLIC_SUPABASE_URL &&
-      process.env.SUPABASE_SERVICE_ROLE_KEY
+    readEnv("NEXT_PUBLIC_SUPABASE_URL") && readEnv("SUPABASE_SERVICE_ROLE_KEY")
   );
 }
 
 /** Server-only Supabase client (service_role). Never use in client components. */
 export function createSupabaseAdmin(): SupabaseClient {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = readEnv("NEXT_PUBLIC_SUPABASE_URL");
+  const serviceRoleKey = readEnv("SUPABASE_SERVICE_ROLE_KEY");
 
   if (!url || !serviceRoleKey) {
     throw new Error(

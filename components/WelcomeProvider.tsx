@@ -140,9 +140,34 @@ interface WelcomeOverlayProps {
   contentVisible: boolean;
 }
 
+function WelcomeTextOverlay({ visible }: { visible: boolean }) {
+  if (!visible) return null;
+
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 flex flex-col items-center justify-between px-6 py-[14%] text-center text-white"
+      aria-hidden
+    >
+      <div className="flex flex-1 flex-col items-center justify-center gap-4 pt-[8%]">
+        <p className="font-welcome text-[clamp(28px,7vw,40px)] leading-tight">
+          안녕하세요 고객님
+        </p>
+        <div className="font-welcome space-y-2 text-[clamp(16px,4.2vw,22px)] leading-relaxed">
+          <p>주문해주셔서 감사합니다.</p>
+          <p>정성을 담아 준비하겠습니다.</p>
+        </div>
+      </div>
+      <p className="font-welcome pb-[4%] text-[clamp(12px,3.2vw,16px)] opacity-90">
+        오름과메기 | 포항 영남수산
+      </p>
+    </div>
+  );
+}
+
 function WelcomeOverlay({ phase, contentVisible }: WelcomeOverlayProps) {
   const isFadingOut = phase === "fade-out";
   const imageDisplayWidth = useWelcomeImageDisplayWidth();
+  const [imageFailed, setImageFailed] = useState(false);
 
   return (
     <div
@@ -178,10 +203,12 @@ function WelcomeOverlay({ phase, contentVisible }: WelcomeOverlayProps) {
             decoding="sync"
             loading="eager"
             fetchPriority="high"
+            onError={() => setImageFailed(true)}
             className="block h-auto max-w-full"
             style={{ width: imageDisplayWidth }}
           />
 
+          <WelcomeTextOverlay visible={imageFailed} />
           <WelcomeDotsOverlay />
         </div>
 

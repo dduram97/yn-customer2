@@ -41,6 +41,12 @@ export async function loadSiteContentFromStore(
     .maybeSingle();
 
   if (error) {
+    // Fallback: committed JSON keeps customer pages up if env keys are misconfigured.
+    const fileContent = await readSiteContentFile();
+    if (fileContent) {
+      console.error(`Supabase load failed (${error.message}); using site-content.json fallback.`);
+      return normalize(fileContent);
+    }
     throw new Error(`Failed to load site content: ${error.message}`);
   }
 
