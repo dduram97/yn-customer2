@@ -25,6 +25,8 @@ export default function ImagePlaceholder({
   compact = false,
 }: ImagePlaceholderProps) {
   if (src) {
+    const isRemote = /^https?:\/\//i.test(src) || src.startsWith("/uploads/");
+
     return (
       <div
         className={cn(
@@ -34,9 +36,11 @@ export default function ImagePlaceholder({
         )}
       >
         <Image
+          key={src}
           src={src}
           alt={alt ?? label}
           fill
+          unoptimized={isRemote}
           className="object-cover"
           sizes="(max-width: 512px) 100vw, 512px"
         />

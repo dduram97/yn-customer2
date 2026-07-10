@@ -11,6 +11,14 @@ import type {
 
 export type SeafoodGuideKind = "storage" | "cleaning";
 
+export interface RelatedSeafoodGuideLink {
+  label: string;
+  /** Present when the paired guide exists and can be opened. */
+  href?: string;
+  /** True when the pair is missing — show "준비중" modal instead of navigating. */
+  pending?: boolean;
+}
+
 /** Customer links and guide keys use each preview's unique id. */
 export function resolveSeafoodSlug(preview: ProductPreview): string {
   return preview.id;
@@ -23,22 +31,26 @@ export function getSeafoodGuidePath(
   return `/seafood/${slug}/${kind}`;
 }
 
+function normalizeSeafoodName(name: string): string {
+  return name.trim().toLowerCase().replace(/\s+/g, "");
+}
+
 export function findStoragePreviewBySlug(
   content: SiteContent,
   slug: string
 ): ProductPreview | undefined {
-  return content.productPreviews.find(
-    (preview) => preview.id === slug || preview.anchorId === slug
-  );
+  const byId = content.productPreviews.find((preview) => preview.id === slug);
+  if (byId) return byId;
+  return content.productPreviews.find((preview) => preview.anchorId === slug);
 }
 
 export function findHandlingPreviewBySlug(
   content: SiteContent,
   slug: string
 ): ProductPreview | undefined {
-  return content.handlingPreviews.find(
-    (preview) => preview.id === slug || preview.anchorId === slug
-  );
+  const byId = content.handlingPreviews.find((preview) => preview.id === slug);
+  if (byId) return byId;
+  return content.handlingPreviews.find((preview) => preview.anchorId === slug);
 }
 
 export function findStorageGuideBySlug(
@@ -67,6 +79,112 @@ export function findEatingGuideBySlug(
   return content.eatingGuides.find((guide) => guide.id === preview.id);
 }
 
+function resolveCurrentSeafoodName(
+  content: SiteContent,
+  slug: string,
+  currentKind: SeafoodGuideKind
+): string {
+  if (currentKind === "cleaning") {
+    return (
+      findEatingGuideBySlug(content, slug)?.name ??
+      findHandlingPreviewBySlug(content, slug)?.name ??
+      "수산물"
+    );
+  }
+
+  return (
+    findStorageGuideBySlug(content, slug)?.name ??
+    findStoragePreviewBySlug(content, slug)?.name ??
+    "수산물"
+  );
+}
+
+function findStoragePairByName(
+  content: SiteContent,
+  name: string
+): { slug: string; guide?: StorageGuide } | null {
+  const normalized = normalizeSeafoodName(name);
+
+  const preview = content.productPreviews.find(
+    (item) => normalizeSeafoodName(item.name) === normalized
+  );
+  if (preview) {
+    return {
+      slug: preview.id,
+      guide: findStorageGuideBySlug(content, preview.id),
+    };
+  }
+
+  const guide = content.storageGuides.find(
+    (item) => normalizeSeafoodName(item.name) === normalized
+  );
+  if (guide) {
+    return { slug: guide.id, guide };
+  }
+
+  return null;
+}
+
+function findEatingPairByName(
+  content: SiteContent,
+  name: string
+): { slug: string; guide?: EatingGuide } | null {
+  const normalized = normalizeSeafoodName(name);
+
+  const preview = content.handlingPreviews.find(
+    (item) => normalizeSeafoodName(item.name) === normalized
+  );
+  if (preview) {
+    return {
+      slug: preview.id,
+      guide: findEatingGuideBySlug(content, preview.id),
+    };
+  }
+
+  const guide = content.eatingGuides.find(
+    (item) => normalizeSeafoodName(item.name) === normalized
+  );
+  if (guide) {
+    return { slug: guide.id, guide };
+  }
+
+  return null;
+}
+
+/**
+ * Always returns a related 손질법↔보관법 action for the same seafood (matched by name).
+ * When the pair is missing, `pending` is true so the UI can show a "준비중" modal.
+ */
+export function getRelatedSeafoodGuidePath(
+  content: SiteContent,
+  slug: string,
+  currentKind: SeafoodGuideKind
+): RelatedSeafoodGuideLink {
+  const name = resolveCurrentSeafoodName(content, slug, currentKind);
+
+  if (currentKind === "cleaning") {
+    const label = `${name} 보관법 보기`;
+    const pair = findStoragePairByName(content, name);
+    if (pair?.guide) {
+      return {
+        href: getSeafoodGuidePath(pair.slug, "storage"),
+        label,
+      };
+    }
+    return { label, pending: true };
+  }
+
+  const label = `${name} 손질법 보기`;
+  const pair = findEatingPairByName(content, name);
+  if (pair?.guide) {
+    return {
+      href: getSeafoodGuidePath(pair.slug, "cleaning"),
+      label,
+    };
+  }
+  return { label, pending: true };
+}
+
 /** @deprecated Use getVisibleHomeStoragePreviews from home-card-sync */
 export function getStorageListItems(content: SiteContent): ProductPreview[] {
   return getVisibleHomeStoragePreviews(content);
@@ -75,39 +193,6 @@ export function getStorageListItems(content: SiteContent): ProductPreview[] {
 /** @deprecated Use getVisibleHomeHandlingPreviews from home-card-sync */
 export function getCleaningListItems(content: SiteContent): ProductPreview[] {
   return getVisibleHomeHandlingPreviews(content);
-}
-
-export function getRelatedSeafoodGuidePath(
-  content: SiteContent,
-  slug: string,
-  currentKind: SeafoodGuideKind
-): { href: string; label: string } | null {
-  const storageGuide = findStorageGuideBySlug(content, slug);
-  const eatingGuide = findEatingGuideBySlug(content, slug);
-  const storagePreview = findStoragePreviewBySlug(content, slug);
-  const handlingPreview = findHandlingPreviewBySlug(content, slug);
-  const name =
-    storageGuide?.name ??
-    eatingGuide?.name ??
-    storagePreview?.name ??
-    handlingPreview?.name ??
-    "수산물";
-
-  if (currentKind === "storage" && eatingGuide) {
-    return {
-      href: getSeafoodGuidePath(slug, "cleaning"),
-      label: `${name} 손질법 보기`,
-    };
-  }
-
-  if (currentKind === "cleaning" && storageGuide) {
-    return {
-      href: getSeafoodGuidePath(slug, "storage"),
-      label: `${name} 보관법 보기`,
-    };
-  }
-
-  return null;
 }
 
 export function getSeafoodPageTitle(

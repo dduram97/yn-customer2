@@ -15,6 +15,8 @@ import {
   getRelatedSeafoodGuidePath,
 } from "@/lib/seafood-guide";
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ preview?: string }>;

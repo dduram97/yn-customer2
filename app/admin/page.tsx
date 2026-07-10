@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   HOME_SECTION_LABELS,
@@ -30,36 +30,67 @@ type SectionKey =
 export default function AdminPage() {
   const router = useRouter();
   const [content, setContent] = useState<SiteContent | null>(null);
+  const contentRef = useRef<SiteContent | null>(null);
   const [activeSection, setActiveSection] = useState<SectionKey>("site");
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    contentRef.current = content;
+  }, [content]);
+
+  /** Always merge into the latest content to avoid stale closures on async uploads. */
+  const patchContent = (updater: (prev: SiteContent) => SiteContent) => {
+    setContent((prev) => {
+      if (!prev) return prev;
+      const next = updater(prev);
+      contentRef.current = next;
+      return next;
+    });
+  };
+
+  useEffect(() => {
     fetch("/api/admin/content")
       .then((res) => res.json())
-      .then((data) => setContent(data));
+      .then((data) => {
+        if (data && !data.error) {
+          contentRef.current = data;
+          setContent(data);
+        }
+      });
   }, []);
 
   const handleSave = async () => {
-    if (!content) return;
+    const latest = contentRef.current;
+    if (!latest) return;
     setSaving(true);
     setMessage("");
 
     const response = await fetch("/api/admin/content", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(content),
+      body: JSON.stringify(latest),
     });
 
-    setSaving(false);
     const data = await response.json().catch(() => ({}));
-    setMessage(
-      response.ok
-        ? "저장되었습니다."
-        : typeof data.error === "string"
-          ? data.error
-          : "저장에 실패했습니다."
-    );
+
+    if (response.ok) {
+      // Confirm DB write by reloading — matches what customer pages will read.
+      const refreshed = await fetch("/api/admin/content")
+        .then((res) => res.json())
+        .catch(() => null);
+      if (refreshed && !refreshed.error) {
+        contentRef.current = refreshed;
+        setContent(refreshed);
+      }
+      setMessage("저장되었습니다.");
+    } else {
+      setMessage(
+        typeof data.error === "string" ? data.error : "저장에 실패했습니다."
+      );
+    }
+
+    setSaving(false);
   };
 
   const handleLogout = async () => {
@@ -178,9 +209,14 @@ export default function AdminPage() {
                   mediaUrl={slide.imageUrl}
                   onUpload={(file) =>
                     uploadImage(file, (url) => {
-                      const heroSlides = [...content.heroSlides];
-                      heroSlides[index] = { ...slide, imageUrl: url };
-                      setContent({ ...content, heroSlides });
+                      patchContent((prev) => {
+                        const heroSlides = [...prev.heroSlides];
+                        heroSlides[index] = {
+                          ...heroSlides[index],
+                          imageUrl: url,
+                        };
+                        return { ...prev, heroSlides };
+                      });
                     })
                   }
                 />
@@ -192,16 +228,18 @@ export default function AdminPage() {
                 title="수산물 손질법"
                 items={content.handlingPreviews}
                 onChange={(handlingPreviews) =>
-                  setContent({ ...content, handlingPreviews })
+                  patchContent((prev) => ({ ...prev, handlingPreviews }))
                 }
                 onUpload={(file, index) =>
                   uploadImage(file, (url) => {
-                    const handlingPreviews = [...content.handlingPreviews];
-                    handlingPreviews[index] = {
-                      ...handlingPreviews[index],
-                      imageUrl: url,
-                    };
-                    setContent({ ...content, handlingPreviews });
+                    patchContent((prev) => {
+                      const handlingPreviews = [...prev.handlingPreviews];
+                      handlingPreviews[index] = {
+                        ...handlingPreviews[index],
+                        imageUrl: url,
+                      };
+                      return { ...prev, handlingPreviews };
+                    });
                   })
                 }
               />
@@ -210,16 +248,18 @@ export default function AdminPage() {
                 title="수산물 보관법"
                 items={content.productPreviews}
                 onChange={(productPreviews) =>
-                  setContent({ ...content, productPreviews })
+                  patchContent((prev) => ({ ...prev, productPreviews }))
                 }
                 onUpload={(file, index) =>
                   uploadImage(file, (url) => {
-                    const productPreviews = [...content.productPreviews];
-                    productPreviews[index] = {
-                      ...productPreviews[index],
-                      imageUrl: url,
-                    };
-                    setContent({ ...content, productPreviews });
+                    patchContent((prev) => {
+                      const productPreviews = [...prev.productPreviews];
+                      productPreviews[index] = {
+                        ...productPreviews[index],
+                        imageUrl: url,
+                      };
+                      return { ...prev, productPreviews };
+                    });
                   })
                 }
               />
@@ -234,10 +274,10 @@ export default function AdminPage() {
               mediaUrl={content.pageImages.contactHero}
               onUpload={(file) =>
                 uploadImage(file, (url) =>
-                  setContent({
-                    ...content,
-                    pageImages: { ...content.pageImages, contactHero: url },
-                  })
+                  patchContent((prev) => ({
+                    ...prev,
+                    pageImages: { ...prev.pageImages, contactHero: url },
+                  }))
                 )
               }
             />
@@ -299,9 +339,11 @@ export default function AdminPage() {
             handlingPreviews={content.handlingPreviews}
             eatingGuides={content.eatingGuides}
             eatingGuideTemplates={content.eatingGuideTemplates ?? []}
-            onChange={(eatingGuides) => setContent({ ...content, eatingGuides })}
+            onChange={(eatingGuides) =>
+              patchContent((prev) => ({ ...prev, eatingGuides }))
+            }
             onTemplatesChange={(eatingGuideTemplates) =>
-              setContent({ ...content, eatingGuideTemplates })
+              patchContent((prev) => ({ ...prev, eatingGuideTemplates }))
             }
             onUpload={uploadImage}
           />
@@ -312,9 +354,11 @@ export default function AdminPage() {
             productPreviews={content.productPreviews}
             storageGuides={content.storageGuides}
             storageGuideTemplates={content.storageGuideTemplates ?? []}
-            onChange={(storageGuides) => setContent({ ...content, storageGuides })}
+            onChange={(storageGuides) =>
+              patchContent((prev) => ({ ...prev, storageGuides }))
+            }
             onTemplatesChange={(storageGuideTemplates) =>
-              setContent({ ...content, storageGuideTemplates })
+              patchContent((prev) => ({ ...prev, storageGuideTemplates }))
             }
             onUpload={uploadImage}
           />
@@ -324,7 +368,7 @@ export default function AdminPage() {
           <GuideTemplatesAdminSection
             eatingGuideTemplates={content.eatingGuideTemplates ?? []}
             storageGuideTemplates={content.storageGuideTemplates ?? []}
-            onChange={(patch) => setContent({ ...content, ...patch })}
+            onChange={(patch) => patchContent((prev) => ({ ...prev, ...patch }))}
           />
         )}
 

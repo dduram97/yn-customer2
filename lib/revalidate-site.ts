@@ -8,4 +8,6 @@ export function revalidateCustomerPages(): void {
   revalidatePath("/faq");
   revalidatePath("/contact");
   revalidatePath("/seafood", "layout");
+  revalidatePath("/seafood/[slug]/cleaning", "page");
+  revalidatePath("/seafood/[slug]/storage", "page");
 }

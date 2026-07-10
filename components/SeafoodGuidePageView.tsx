@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import SeafoodGuideDetail from "@/components/SeafoodGuideDetail";
+import SeafoodGuideDetail, {
+  type RelatedGuideLink,
+} from "@/components/SeafoodGuideDetail";
 import {
   resolveGuideContentBlocks,
   resolveGuidePageTitle,
@@ -19,10 +21,7 @@ interface SeafoodGuidePageViewProps {
   steps: GuideStep[];
   heroImageUrl?: string;
   isHidden: boolean;
-  relatedLink?: {
-    href: string;
-    label: string;
-  } | null;
+  relatedLink?: RelatedGuideLink | null;
 }
 
 function HiddenGuideNotice({

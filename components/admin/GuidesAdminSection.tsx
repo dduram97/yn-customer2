@@ -210,10 +210,12 @@ function ImageUploadField({
   label,
   imageUrl,
   onUpload,
+  onRemove,
 }: {
   label: string;
   imageUrl?: string;
   onUpload: (file: File) => void;
+  onRemove?: () => void;
 }) {
   return (
     <div className="space-y-2">
@@ -222,15 +224,31 @@ function ImageUploadField({
         // eslint-disable-next-line @next/next/no-img-element
         <img src={imageUrl} alt="" className="max-h-40 rounded-xl border border-border" />
       ) : null}
-      <input
-        type="file"
-        accept="image/*,video/*,.gif"
-        onChange={(event) => {
-          const file = event.target.files?.[0];
-          if (file) onUpload(file);
-        }}
-        className="block w-full text-[13px] text-body"
-      />
+      <div className="flex flex-wrap items-center gap-2">
+        <input
+          type="file"
+          accept="image/*,video/*,.gif"
+          onChange={(event) => {
+            const file = event.target.files?.[0];
+            if (file) onUpload(file);
+            event.target.value = "";
+          }}
+          className="block min-w-0 flex-1 text-[13px] text-body"
+        />
+        {imageUrl && onRemove ? (
+          <button
+            type="button"
+            onClick={() => {
+              if (window.confirm("대표 이미지를 삭제할까요?")) {
+                onRemove();
+              }
+            }}
+            className="shrink-0 rounded-xl border border-border bg-white px-3 py-2 text-[13px] font-medium text-black active:bg-surface"
+          >
+            이미지 삭제
+          </button>
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -383,6 +401,7 @@ function GuideEditorPanel({
         onUpload={(file) =>
           onUpload(file, (url) => onGuidePatch({ imageUrl: url }))
         }
+        onRemove={() => onGuidePatch({ imageUrl: "" })}
       />
       <p className="text-[12px] text-body">
         홈 카드뉴스 이미지와 별도로 관리됩니다. 상세 페이지에만 표시됩니다.
@@ -451,6 +470,8 @@ export function StorageGuidesAdminSection({
       name: "",
       imageLabel: "",
     }));
+  const storageGuidesRef = useRef(storageGuides);
+  storageGuidesRef.current = storageGuides;
   const [editorBlocks, setEditorBlocks] = useGuideEditorBlocks(
     guide,
     "storage",
@@ -469,7 +490,7 @@ export function StorageGuidesAdminSection({
   const contentStatus = activeItem.status;
 
   const updateGuide = (patch: Partial<StorageGuide>) => {
-    onChange(upsertStorageGuide(storageGuides, preview, patch));
+    onChange(upsertStorageGuide(storageGuidesRef.current, preview, patch));
   };
 
   const handleBlocksChange = (blocks: GuideContentBlock[]) => {
@@ -536,6 +557,8 @@ export function EatingGuidesAdminSection({
       name: "",
       imageLabel: "",
     }));
+  const eatingGuidesRef = useRef(eatingGuides);
+  eatingGuidesRef.current = eatingGuides;
   const [editorBlocks, setEditorBlocks] = useGuideEditorBlocks(
     guide,
     "eating",
@@ -554,7 +577,7 @@ export function EatingGuidesAdminSection({
   const contentStatus = activeItem.status;
 
   const updateGuide = (patch: Partial<EatingGuide>) => {
-    onChange(upsertEatingGuide(eatingGuides, preview, patch));
+    onChange(upsertEatingGuide(eatingGuidesRef.current, preview, patch));
   };
 
   const handleBlocksChange = (blocks: GuideContentBlock[]) => {
