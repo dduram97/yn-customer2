@@ -1,1 +1,7 @@
-export { getSiteContent, saveSiteContent, DEFAULT_SITE_CONTENT, normalizeSiteContent } from "@/lib/site-content";
+export {
+  getSiteContent,
+  getSiteContentFresh,
+  saveSiteContent,
+  DEFAULT_SITE_CONTENT,
+  normalizeSiteContent,
+} from "@/lib/site-content";

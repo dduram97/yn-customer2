@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import SeafoodGuidePageView from "@/components/SeafoodGuidePageView";
-import { getSiteContent } from "@/data/content";
+import { getSiteContentFresh } from "@/data/content";
 import { resolveGuideThumbnail } from "@/lib/guide-display";
 import {
   resolveEatingDescription,
@@ -24,7 +24,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const content = await getSiteContent();
+  const content = await getSiteContentFresh();
   const guide = findEatingGuideBySlug(content, slug);
   const preview = findHandlingPreviewBySlug(content, slug);
   const name = guide?.name ?? preview?.name ?? "수산물";
@@ -39,7 +39,8 @@ export default async function SeafoodCleaningPage({ params, searchParams }: Page
   const { slug } = await params;
   const { preview } = await searchParams;
   const isPreview = preview === "true";
-  const content = await getSiteContent();
+  // Fresh read so eatingGuides[].imageUrl (대표 이미지) updates immediately after CMS save.
+  const content = await getSiteContentFresh();
   const guide = findEatingGuideBySlug(content, slug);
   const handlingPreview = findHandlingPreviewBySlug(content, slug);
 
@@ -60,6 +61,7 @@ export default async function SeafoodCleaningPage({ params, searchParams }: Page
       blocks={guide ? resolveGuideDisplayBlocks(guide, "eating", name) : []}
       steps={guide ? resolveEatingDisplaySteps(guide) : []}
       heroImageUrl={resolveGuideThumbnail(guide)}
+      heroMuted={guide?.heroMuted === true}
       isHidden={guide ? !isGuidePublished(guide) : false}
       relatedLink={relatedLink}
     />

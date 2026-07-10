@@ -1,3 +1,5 @@
+import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import {
   ensureEatingGuidesForPreviews,
   ensureStorageGuidesForPreviews,
@@ -14,6 +16,9 @@ import {
   persistSiteContentToStore,
 } from "@/lib/site-content-store";
 import type { SiteContent } from "@/lib/types";
+
+/** Tag for revalidateTag after CMS saves — invalidates home/static data cache only. */
+export const SITE_CONTENT_CACHE_TAG = "site-content";
 
 export const DEFAULT_SITE_CONTENT: SiteContent = {
   siteConfig: {
@@ -275,9 +280,36 @@ export function normalizeSiteContent(content: SiteContent): SiteContent {
   };
 }
 
-export async function getSiteContent(): Promise<SiteContent> {
+async function loadNormalizedSiteContent(): Promise<SiteContent> {
   return loadSiteContentFromStore(DEFAULT_SITE_CONTENT, normalizeSiteContent);
 }
+
+/**
+ * Cross-request cache for home / layout / static customer pages.
+ * Invalidated on admin save via revalidateTag(SITE_CONTENT_CACHE_TAG).
+ */
+const loadCachedSiteContent = unstable_cache(
+  loadNormalizedSiteContent,
+  ["site-content-main"],
+  {
+    tags: [SITE_CONTENT_CACHE_TAG],
+    revalidate: 60,
+  }
+);
+
+/** Home, layout, FAQ, guide lists — cached; refreshed on CMS save. */
+export const getSiteContent = cache(async (): Promise<SiteContent> => {
+  return loadCachedSiteContent();
+});
+
+/**
+ * Seafood detail + admin API — always hit the store so storageGuides[].imageUrl
+ * (대표 이미지) is never served from a stale cross-request cache.
+ * React cache() still dedupes within a single request.
+ */
+export const getSiteContentFresh = cache(async (): Promise<SiteContent> => {
+  return loadNormalizedSiteContent();
+});
 
 export async function saveSiteContent(content: SiteContent): Promise<void> {
   await persistSiteContentToStore(content, normalizeSiteContent);

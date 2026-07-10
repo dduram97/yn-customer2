@@ -2,28 +2,28 @@
   "faqItems": [
     {
       "id": "delivery-time",
-      "answer": "주문 후 1~2일 내 출고되며, 택배 배송은 보통 1~2일 추가 소요됩니다. 제철 수산물 특성상 날씨나 물량에 따라 1~2일 지연될 수 있습니다.",
-      "question": "배송은 며칠 걸리나요?"
+      "answer": "월~금, 일요일 주문건 다음날 도착 보장\n토요일 배송휴무\n\n공휴일 배송문의는 유선문의나 \n네이버 스토어 팝업 배송공지 확인 부탁드립니다.",
+      "question": "Q. 배송은 며칠 걸리나요?"
     },
     {
       "id": "tracking",
-      "answer": "주문 후 카카오톡 알림톡으로 발송되는 배송조회 버튼을 누르시면 됩니다. 운송장번호를 직접 입력하실 필요가 없습니다.",
-      "question": "배송조회는 어떻게 하나요?"
+      "answer": "배송당일 오후 10시 이전 도착 건은 택배사 기준 정상 배송으로 처리되어\n오후 10시 이전 수취 건은 별도 조치 어려운 점 양해부탁드립니다.",
+      "question": "Q. 오후인데 배송이 안와요."
     },
     {
       "id": "storage",
-      "answer": "밀봉 후 냉동 보관해 주세요. 드실 때는 냉장실에서 12~24시간 천천히 해동하시고, 해동 후 재냉동은 피해 주세요.",
-      "question": "과메기는 어떻게 보관하나요?"
+      "answer": "배송 시간은 저희측에서 별도 지정 불가하며 지역별 택배사 물량 및 \n기사님 일정에 따라 달라질 수 있습니다.\n\n정확한 배송시간은 배송 당일 기사님께서 발송하는 안내문자로 확인 부탁드립니다.",
+      "question": "Q. 배송시간 알려주세요."
     },
     {
       "id": "reorder",
-      "answer": "전화 주문 또는 카카오톡 채널로 문의해 주시면 됩니다. 문의하기 페이지에서 바로 연결하실 수 있습니다.",
-      "question": "재주문은 어떻게 하나요?"
+      "answer": "네, 주문일로부터 일주일 이내의 날짜로 배송일 지정이 가능합니다.\n\n[네이버 스마트스토어 주문 시]\n주문 단계의 배송메모란에 원하시는 배송일을 기재해 주세요.\n\n[유선 주문 시]\n희망 배송일을 미리 말씀해 주신 뒤, 문자로 \n아래 내용을 보내주시면 됩니다.\n\n희망 배송일\n성함\n전화번호\n배송지 주소\n주문 상품\n입금자명",
+      "question": "Q. 배송일을 지정할 수 있나요?"
     },
     {
       "id": "refund",
-      "answer": "수령 후 24시간 이내에 사진과 함께 카카오톡 또는 전화로 연락해 주세요. 신선식품 특성상 빠른 연락이 중요합니다.",
-      "question": "상품에 문제가 있으면 어떻게 하나요?"
+      "answer": "수령직후 섭취하지마시고 즉시 상품 사진과 함께 카카오톡 또는 전화로 연락해 주세요.",
+      "question": "Q. 상품에 문제가 있으면 어떻게 하나요?"
     }
   ],
   "heroSlides": [
@@ -59,7 +59,7 @@
     "phone": "0507-1351-9511",
     "address": "경상북도 포항시 북구 칠성로 64",
     "kakaoUrl": "http://pf.kakao.com/_wQXIX",
-    "description": "❝신념 하나로 동해안 포항 바다와 함께 살아온 가족❞\n⛴️ 선주 아버지 • 🐟 포항 죽도어시장 어머니\n🏠 구룡포 38년 전통 덕장 이모부의 기준을 잇고 있습니다.\n\n기존 부모님이 운영해오시던 오프라인 매장에서 \n더 많은 고객님들께 믿고 드실수 있는 수산물로 만나뵙기 위해 \n현재 온라인 매장을 함께 운영하고 있습니다.\n\n늘 정직한 원물로 보답드리는 \n포항 영남수산 l 오름과메기가 되겠습니다. \n\n감사합니다.",
+    "description": "❝신념 하나로 동해안 포항 바다와 함께 살아온 가족❞\n⛴️ 선주 아버지 • 🐟 포항 죽도어시장 어머니\n🏠 구룡포 38년 전통 덕장 이모부의 기준을 잇고 있습니다.\n\n저희 가족은 오랜 시간 포항 바다와 함께하며\n좋은 수산물을 고르는 기준과 정직함을 배워왔습니다.\n\n오프라인 매장에서 오랜 시간 쌓아온 신뢰와\n선주 아버지가 직접 만나는 산지의 가치,\n이모부가 지켜온 구룡포 덕장의 기준을 그대로 담아\n더 많은 고객님께 전해드리기 위해 \n딸인 제가 온라인 매장을 운영하고 있습니다.\n\n좋은 원물을 정직하게 고르고,\n바르게 손질하고 정성껏 포장하여\n받아보시는 순간까지 만족하실 수 있도록 \n늘 최선을 다하겠습니다.\n\n감사합니다.",
     "businessHours": "연중무휴 06:00 ~ 18:00"
   },
   "pageContent": {
@@ -79,47 +79,51 @@
         {
           "id": "heading",
           "type": "heading",
+          "style": {},
           "title": "과메기 손질법"
         },
         {
           "id": "block-1-1783622385445-dbp7z",
           "type": "text",
-          "title": "손질정보",
-          "content": ""
+          "style": {},
+          "title": "꼬리 자르기",
+          "content": "",
+          "titleStyle": {}
         },
         {
-          "id": "block-2-1783622385445-397hb",
+          "id": "text-1783629527839-njxid",
           "type": "text",
-          "title": "손질방법",
-          "content": ""
-        },
-        {
-          "id": "block-3-1783622385445-nqud8",
-          "type": "text",
-          "title": "해동방법",
-          "content": ""
-        },
-        {
-          "id": "block-4-1783622385445-h4lqy",
-          "type": "text",
-          "title": "먹는방법",
+          "style": {},
+          "title": "지느러미 자르기",
           "content": ""
         },
         {
           "id": "block-5-1783622385445-ih25u",
           "type": "text",
-          "title": "맛있게 먹는 순서",
+          "style": {},
+          "title": "껍질 분리",
+          "content": "",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783629574420-53q66",
+          "type": "text",
+          "style": {},
+          "title": "맛있게 드시는 법",
           "content": ""
         },
         {
           "id": "block-6-1783622385445-rc95u",
           "type": "text",
+          "style": {},
           "title": "추천조합",
-          "content": ""
+          "content": "",
+          "titleStyle": {}
         }
       ],
       "summary": "쌈과 함께 한 입에 드시면 최고의 맛",
       "thawing": "냉장실에서 12~24시간 천천히 해동",
+      "isVisible": false,
       "eatingOrder": [
         "쌈채소에 과메기 올리기",
         "마늘, 쪽파 추가",
@@ -138,11 +142,46 @@
     },
     {
       "id": "octopus",
-      "name": "참문어",
+      "name": "게종류",
       "emoji": "🐙",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "게 손질법"
+        },
+        {
+          "id": "block-prep-info",
+          "type": "text",
+          "style": {},
+          "title": "입따주기",
+          "content": "<p>입에 칼끝을 세워 넣고 <strong>오른쪽 방향</strong>으로 칼을 돌려주세요.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783629768961-htpa0",
+          "type": "text",
+          "style": {},
+          "title": "짠기 빼기",
+          "content": "<p>입을 따준 게를 <strong>미지근한 물에 5분</strong>간 담궈주세요.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783628713399-r75ld",
+          "type": "text",
+          "style": {},
+          "title": "찌기",
+          "content": "<p>찜기에 물이 끓기 시작하면 <strong><mark>게의 배를 위로 향하게</mark></strong> (게 딱지가 아래로 향하게)두고 </p><p>찜통 뚜껑을 닫아 <strong>25분~30분</strong> 동안 쪄준 뒤, <strong>뚜껑을 연채로 10분간 뜸</strong>을 들여주면 완성!</p>",
+          "titleStyle": {}
+        }
+      ],
       "summary": "삶거나 숙회로 즐기는 포항의 별미",
       "thawing": "냉장실에서 6~8시간 해동",
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783618077383-oeaozqdze7j.jpg",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783696407154-0gbymt6ptmu.png",
       "isVisible": true,
       "eatingOrder": [
         "깨끗이 씻어 삶기 (30~40분)",
@@ -156,67 +195,58 @@
         "마늘",
         "참기름",
         "깻잎"
-      ],
-      "blocks": [
-        {
-          "id": "heading",
-          "type": "heading",
-          "title": "참문어 손질법",
-          "style": {
-            "fontSize": "2xl",
-            "fontWeight": "bold"
-          }
-        },
-        {
-          "id": "block-prep-info",
-          "type": "text",
-          "title": "손질정보?",
-          "content": "<p>삶거나 숙회로 즐기는 포항의 별미</p>",
-          "style": {}
-        },
-        {
-          "id": "block-preparation",
-          "type": "text",
-          "title": "손질방법",
-          "content": "<p>소금으로 문질러 미끈거림 제거, 내장 제거</p>",
-          "style": {}
-        },
-        {
-          "id": "block-thawing",
-          "type": "text",
-          "title": "해동방법",
-          "content": "<p>냉장실에서 6~8시간 해동</p>",
-          "style": {}
-        },
-        {
-          "id": "block-eating",
-          "type": "text",
-          "title": "먹는방법",
-          "content": "<p>삶은 문어는 초고추장에 찍어 먹거나, 참기름과 소금에 찍어 드세요. 숙회로 드실 때는 신선한 상태에서 얇게 썰어 드시면 됩니다.</p>",
-          "style": {}
-        },
-        {
-          "id": "block-order",
-          "type": "text",
-          "title": "맛있게 먹는 순서",
-          "content": "<ul><li>깨끗이 씻어 삶기 (30~40분)</li><li>식힌 후 먹기 좋은 크기로 자르기</li><li>초고추장에 찍어 먹기</li></ul>",
-          "style": {}
-        },
-        {
-          "id": "block-pairing",
-          "type": "text",
-          "title": "추천조합",
-          "content": "<p>초고추장, 마늘, 참기름, 깻잎</p>",
-          "style": {}
-        }
       ]
     },
     {
       "id": "semi-dried",
       "name": "반건조 생선",
       "emoji": "🐠",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "반건조 생선 손질법"
+        },
+        {
+          "id": "block-prep-info",
+          "type": "text",
+          "style": {},
+          "title": "가자미류",
+          "content": "<p>구이로 드시면 고소한 맛이 일품</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-preparation",
+          "type": "text",
+          "style": {},
+          "title": "민어조기",
+          "content": "<p>흐르는 물에 가볍게 씻기</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-order",
+          "type": "text",
+          "style": {},
+          "title": "맛있게 드시는 법",
+          "content": "<ul><li>팬에 기름 두르고 앞뒤로 구워주기</li><li>겉이 노릇해질 때까지 익히기</li><li>레몬 즙 뿌려 드시기</li></ul>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-pairing",
+          "type": "text",
+          "style": {},
+          "title": "추천조합",
+          "content": "<p>레몬, 마늘, 버터, 와사비</p>",
+          "titleStyle": {}
+        }
+      ],
       "summary": "구이로 드시면 고소한 맛이 일품",
       "thawing": "냉장 보관 상태 그대로 사용",
+      "isVisible": false,
       "eatingOrder": [
         "팬에 기름 두르고 앞뒤로 구워주기",
         "겉이 노릇해질 때까지 익히기",
@@ -233,10 +263,70 @@
     },
     {
       "id": "abalone",
-      "name": "전복",
+      "name": "생선류",
       "emoji": "🦪",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "생선 손질법"
+        },
+        {
+          "id": "block-prep-info",
+          "type": "text",
+          "style": {},
+          "title": "비늘제거",
+          "content": "<p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-preparation",
+          "type": "text",
+          "style": {},
+          "title": "지느러미 제거 ",
+          "content": "<p>✅ 끓는물에 데치면 분리가 쉽습니다</p><p>전복의 <strong>넓은 쪽 가장자리</strong>에 숟가락을 넣습니다.</p><p>껍데기와 살 사이를 따라 숟가락을 밀어 넣어 살을 분리합니다.</p><p>전복이 손상되지 않도록 천천히 떼어냅니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-thawing",
+          "type": "text",
+          "style": {},
+          "title": "배 가르기",
+          "content": "<p>전복 앞쪽(입 부분)에 칼집을 살짝 넣습니다.</p><p>손으로 눌러 <strong>단단한 이빨과 식도 부분</strong>을 제거해주세요.</p><p>내장은 취향에따라 요리에 활용해주시면 좋습니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-eating",
+          "type": "text",
+          "style": {},
+          "title": "내장제거 • 피제거",
+          "content": "<p>버터에 마늘을 볶다가 전복을 넣고 앞뒤로 구워 드세요. 쫄깃한 식감이 살아있을 때가 가장 맛있습니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-order",
+          "type": "text",
+          "style": {},
+          "title": "세척",
+          "content": "<p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-pairing",
+          "type": "text",
+          "style": {},
+          "title": "추천조합",
+          "content": "<p>버터, 마늘, 와사비, 간장</p>",
+          "titleStyle": {}
+        }
+      ],
       "summary": "버터 구이로 고소한 맛을 즐기세요",
       "thawing": "냉동 전복은 냉장실에서 8시간 해동",
+      "isVisible": false,
       "eatingOrder": [
         "전복을 십자로 칼집 내기",
         "버터와 마늘로 앞뒤 구워주기",
@@ -255,9 +345,298 @@
       "id": "eel",
       "name": "장어",
       "emoji": "🐟",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "장어 손질법"
+        },
+        {
+          "id": "block-prep-info",
+          "type": "text",
+          "style": {},
+          "title": "손질정보",
+          "content": ""
+        },
+        {
+          "id": "block-thawing",
+          "type": "text",
+          "style": {},
+          "title": "해동방법",
+          "content": ""
+        },
+        {
+          "id": "block-preparation",
+          "type": "text",
+          "style": {},
+          "title": "손질방법",
+          "content": ""
+        },
+        {
+          "id": "block-eating",
+          "type": "text",
+          "style": {},
+          "title": "먹는방법",
+          "content": ""
+        },
+        {
+          "id": "block-order",
+          "type": "text",
+          "style": {},
+          "title": "맛있게 먹는 순서",
+          "content": ""
+        },
+        {
+          "id": "block-pairing",
+          "type": "text",
+          "style": {},
+          "title": "추천조합",
+          "content": ""
+        }
+      ],
       "summary": "",
       "thawing": "",
       "isVisible": false,
+      "eatingOrder": [],
+      "preparation": "",
+      "eatingMethod": "",
+      "recommendedPairing": []
+    },
+    {
+      "id": "handling-octopus",
+      "name": "참문어",
+      "emoji": "🐙",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "활 참문어"
+        },
+        {
+          "id": "block-prep-info",
+          "type": "text",
+          "style": {},
+          "title": "손질법",
+          "content": "<p>머리를 뒤집어 내장을 칼끝으로 잘라내고</p><p>깨끗한 물에 빨판을 깨끗이 씻어주세요.</p><p><strong>(참문어는 <mark>밀가루나, 소금으로 손질할 필요가 없습니다.</mark>)</strong></p><p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783691792391-cbnlf",
+          "type": "text",
+          "style": {},
+          "title": "삶는법",
+          "content": "<p>생물 무게 기준 1~2kg: 끓는물에 10분</p><p>생물 무게 기준 3~4kg: 끓는물에 16분</p><p>생물 무게 기준 5kg~ : 끓는물에 22분 삶아주세요.</p><p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783691897170-7fsgj",
+          "type": "text",
+          "style": {},
+          "title": "눈알 제거",
+          "content": "<p>다 삶은 참문어를 찬물에 담궈 눈알 부분을 칼집을 내서</p><p>엄지와 검지를 이용해 꼬집어서 눈알을 빼주고</p><p>물에 담근채로 <strong>15분</strong>을 기다려주세요.</p><p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783692019537-nwkdf",
+          "type": "text",
+          "style": {},
+          "title": "물빼기",
+          "content": "<p>머리 위 중간부분에 칼집을 내주고</p><p>다리에 칼집을 내 <strong>10분간</strong> 소쿠리에 담아</p><p>물을 빼주면, 자숙 참문어가 완성됩니다.</p><p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "media-1783692207020-a8r7v",
+          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783692224445-htukruw7wq.png",
+          "type": "media",
+          "mediaType": "image"
+        },
+        {
+          "id": "text-1783628713399-r75ld",
+          "type": "text",
+          "style": {},
+          "title": "맛있게 드시는 법",
+          "content": "<p><strong>[1. 참문어 무침]</strong></p><p>참문어에 기호에 맞게 <strong>다진마늘, 맛소금, 참기름, 통깨를 버무려주면 완성</strong></p><p>새콤달콤한 초장맛으로 즐기는 초무침과는 또 다른 맛이에요!</p><p></p><p><strong>[2. 참문어 삼합]</strong></p><p>잘 삶은 <strong>참문어</strong>를 <strong>묵은지</strong>, <strong>돼지고기 수육</strong>과 함께 곁들여먹는 문어삼합도 별미! 😆</p><p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-pairing",
+          "type": "text",
+          "style": {},
+          "title": "추천조합",
+          "content": "<p>초고추장, 참기름</p>",
+          "titleStyle": {}
+        }
+      ],
+      "summary": "삶거나 숙회로 즐기는 포항의 별미",
+      "thawing": "냉장실에서 6~8시간 해동",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783703076095-w558g4lfyb7.jpeg",
+      "heroMuted": false,
+      "isVisible": true,
+      "eatingOrder": [
+        "깨끗이 씻어 삶기 (30~40분)",
+        "식힌 후 먹기 좋은 크기로 자르기",
+        "초고추장에 찍어 먹기"
+      ],
+      "preparation": "소금으로 문질러 미끈거림 제거, 내장 제거",
+      "eatingMethod": "삶은 문어는 초고추장에 찍어 먹거나, 참기름과 소금에 찍어 드세요. 숙회로 드실 때는 신선한 상태에서 얇게 썰어 드시면 됩니다.",
+      "recommendedPairing": [
+        "초고추장",
+        "마늘",
+        "참기름",
+        "깻잎"
+      ]
+    },
+    {
+      "id": "handling-abalone",
+      "name": "전복",
+      "emoji": "🦪",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "활 전복"
+        },
+        {
+          "id": "block-prep-info",
+          "type": "text",
+          "style": {},
+          "title": "전복 세척",
+          "content": "<p><strong>조리용 솔이나 칫솔을 사용</strong>해 전복 앞면의 까만 이끼와 점액질을 <strong>박박 문질러 닦아냅니다.</strong></p><p>빨판 주변의 옆구리 주름과 테두리까지 하얗게 되도록 흐르는 물에 씻어냅니다.</p><p>까만 물때(바다 이끼)를 <strong>완벽히 제거해야 </strong>조리 시 비린내가 나지 않습니다. </p><p></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "media-1783693525108-hwjnt",
+          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783693539431-5f2rukh4vq.png",
+          "type": "media",
+          "mediaType": "image"
+        },
+        {
+          "id": "block-eating",
+          "type": "text",
+          "style": {},
+          "title": "껍데기 분리",
+          "content": "<p>전복의 껍데기와 살 사이로 숟가락을 깊숙이 밀어 넣어 껍데기를 분리해줍니다.</p><p></p><p>🍯 <strong>꿀팁</strong>: 끓는 물에 전복 껍데기 쪽이 아래로 가도록 두고 <strong>10초~30초간 살짝 데치면</strong> </p><p>껍데기와 살이 아주 쉽게 분리됩니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "media-1783693844623-nqk53",
+          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783693856845-fcge3z2ba6o.png",
+          "type": "media",
+          "mediaType": "image"
+        },
+        {
+          "id": "block-order",
+          "type": "text",
+          "style": {},
+          "title": " 내장 및 이빨 제거",
+          "content": "<p>내장 분리시, 잘 떨어지지 않는 붉은 부분이 바로 이빨입니다.</p><p>해당 부분 밑부분을 꾹 누르시거나, 이빨 양옆을 V모양으로 칼집내 잡아당겨 제거해주시면 끝</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "media-1783694038914-po16s",
+          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783694051616-z3ospixqdx.png",
+          "type": "media",
+          "mediaType": "image"
+        },
+        {
+          "id": "text-1783693993457-hvkqv",
+          "type": "text",
+          "style": {},
+          "title": "맛있게 드시는 법",
+          "content": "<p><strong>[전복 내장죽]</strong></p><p><strong>내장</strong>을 <strong>믹서기</strong>에 곱게 갈아준 뒤, 참기름에 손질한 전복과 내장을 볶고 불린 쌀을 넣어 끓여주세요.</p><p>물을 붓고 뭉근해질 때까지 저어가며 끓여주다 국간장이나 맛소금으로 간을 맞추면 진한 풍미의 내장죽이 완성됩니다. </p><p>죽색깔이 <strong>내장색에 가깝게 진해질수록 고소한 풍미</strong>를 느끼실 수 있어요😀</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-pairing",
+          "type": "text",
+          "style": {},
+          "title": "추천조합",
+          "content": "<p>버터, 마늘, 와사비, 간장</p>",
+          "titleStyle": {}
+        }
+      ],
+      "summary": "버터 구이로 고소한 맛을 즐기세요",
+      "thawing": "냉동 전복은 냉장실에서 8시간 해동",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783693197282-s9fbtti572l.jpeg",
+      "eatingOrder": [
+        "전복을 십자로 칼집 내기",
+        "버터와 마늘로 앞뒤 구워주기",
+        "간장 또는 와사비에 찍어 드시기"
+      ],
+      "preparation": "솔로 껍데기와 이빨 제거, 내장 제거",
+      "eatingMethod": "버터에 마늘을 볶다가 전복을 넣고 앞뒤로 구워 드세요. 쫄깃한 식감이 살아있을 때가 가장 맛있습니다.",
+      "recommendedPairing": [
+        "버터",
+        "마늘",
+        "와사비",
+        "간장"
+      ]
+    },
+    {
+      "id": "handling-1783688242047",
+      "name": "백고동",
+      "emoji": "🐟",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "백고동"
+        },
+        {
+          "id": "block-prep-info",
+          "type": "text",
+          "style": {},
+          "title": "세척",
+          "content": "<p>흐르는 찬물에 백고동을 넣고 솔이나 손으로 껍질을 깨끗하게 문질러 씻어주세요.</p><p>백고동은 <strong>'히스친'</strong>이라는 점액이 있으며 <strong><mark>신선할수록 점액이 많이 나옵니다.</mark></strong></p><p>해당 성분은 <strong><mark>피부에 좋은 성분</mark></strong>으로 드셔도 <strong>무해합니다.</strong></p><p>(백고동 <strong>껍데기는 잘 부서짐으로 세척시 손을 조심</strong>해주세요!)</p>"
+        },
+        {
+          "id": "block-preparation",
+          "type": "text",
+          "style": {},
+          "title": "조리",
+          "content": "<p><strong>백고동 찜 :</strong> 찜기 냄비에<strong> </strong>물을 붓고 물이 끓으면 소주 반 잔(또는 청주)을 넣고 채반 위에 백고동을 올려 <br>뚜껑을 덮고 <strong>10분~15분</strong>을 찐 뒤, 불을 끄고 <strong>뜸을 5분</strong> 들여주시면 완성</p><p></p><p><strong>백고동 삶기:  </strong>냄비에<strong> </strong>물을 붓고 물이 끓으면 소주 반 잔(또는 청주)을 넣고 백고동을 넣어 <br>뚜껑을 덮고 <strong>10분~15분</strong> 삶은 뒤, 불을 끄고 <strong>뜸을 5분 </strong>들여주시면 완성</p><p></p><p>🍯 <strong>꿀팁</strong>: 생물발송으로 소주반잔, 청주는 <strong>굳이 넣지 않으셔도 무방</strong>합니다.</p>"
+        },
+        {
+          "id": "media-1783695512528-l2xzf",
+          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783695524467-kemmo6azddr.png",
+          "type": "media",
+          "mediaType": "image"
+        },
+        {
+          "id": "block-eating",
+          "type": "text",
+          "style": {},
+          "title": "맛있게 드시는 법",
+          "content": "<p>[백고동 된장찌개]</p><p>살짝 데친 백고동을 먹기좋은 크기로 썰어</p><p>된장찌개를 끓일때 함께 넣어주시면 재밌는 식감의 백고동 된장찌개 완성!</p>"
+        },
+        {
+          "id": "block-pairing",
+          "type": "text",
+          "style": {},
+          "title": "추천조합",
+          "content": "<p>초장, 참기름, 어묵, 과메기</p>"
+        }
+      ],
+      "summary": "",
+      "thawing": "",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783694337095-vzhbn9p7q1r.png",
+      "isVisible": true,
       "eatingOrder": [],
       "preparation": "",
       "eatingMethod": "",
@@ -291,6 +670,48 @@
       "id": "gwamegi",
       "name": "과메기",
       "emoji": "🐟",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "과메기 보관법"
+        },
+        {
+          "id": "block-storage-method",
+          "type": "text",
+          "style": {},
+          "title": "보관법",
+          "content": "<p><strong>수령 후 즉시 냉장보관 해주세요.</strong></p><p> 과메기는 신선도와 풍미 유지를 위해 받으신 후 바로 냉장보관하시길 권장합니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-storage-life",
+          "type": "text",
+          "style": {},
+          "title": "냉장보관",
+          "content": "<p><strong>일반포장</strong>은 <strong>2~3일 내</strong> 섭취 권장</p><p><strong>진공 포장 </strong>상태<strong> </strong>수령 후 <strong>최대 7일 내 섭취권장</strong></p><p></p><p><strong>🍯 꿀팁</strong>: 드시기 전 10~20분 정도 상온에 두시면 더욱 쫀득한 식감을 즐기실 수 있습니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-cautions",
+          "type": "text",
+          "style": {},
+          "title": "냉동보관",
+          "content": "<p>장기간 보관 시 <strong>-18℃ 이하 냉동 보관</strong></p><p>약 1개월 이내 드시는 것을 권장합니다.</p><p>드실 만큼만 꺼내 <strong>자연 해동</strong>하여 드시면 맛과 식감을 유지할 수 있습니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783699285055-hpkih",
+          "type": "text",
+          "style": {},
+          "title": "주의사항",
+          "content": "<p><strong>재냉동은 품질저하의 원인이 됩니다.</strong></p><p>직사광선과 습기를 피해 보관해 주세요.</p><p>개봉 후에는 밀봉하여 가능한 한 빨리 섭취하는 것이 가장 좋습니다.</p>"
+        }
+      ],
       "summary": "냉동 보관 후 천천히 해동하여 드세요",
       "cautions": [
         "해동 후 재냉동 금지",
@@ -307,12 +728,48 @@
       "id": "octopus",
       "name": "참문어",
       "emoji": "🐙",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "참문어 보관법"
+        },
+        {
+          "id": "block-storage-info",
+          "type": "text",
+          "style": {},
+          "title": "당일자숙 참문어",
+          "content": "<p><strong>일반 냉장고</strong>에 보관 시, 수취 후 3일내까지 보관 가능&nbsp;</p><p><strong>김치냉장고</strong>에 보관 시, 일주일 까지 보관 가능 &nbsp;</p><p>일주일 이상 보관 시, 진공이나 밀봉해 냉동해주세요.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-storage-method",
+          "type": "text",
+          "style": {},
+          "title": "냉동 문어",
+          "content": "<p>수취 즉시 냉동보관</p><p>해동방법: <strong>자연해동</strong> 권장</p><p><strong>냉동 소비기한</strong>: 진공은 6개월, 일반은 밀봉 후 1개월 권장</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783656575766-lwt11",
+          "type": "text",
+          "style": {},
+          "title": "⚠️ 주의사항",
+          "content": "<p>당일 조업한 생물문어를 <strong><mark>별도의 첨가물 없이 자숙</mark></strong>해</p><p>수령 후 장시간 상온 방치 시, 변질 우려가 있으니</p><p><strong>수령직후 즉시 냉장 or 냉동 보관 부탁드립니다.</strong></p>",
+          "titleStyle": {}
+        }
+      ],
       "summary": "살아있는 상태에서 냉장 보관하거나 냉동 보관",
       "cautions": [
         "해동 시 실온 해동 금지",
         "냄새가 이상하면 섭취 금지",
         "조리 전 충분히 씻어 사용"
       ],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783696475864-8kqrxl6l0gd.gif",
       "shelfLife": "냉장 2~3일 / 냉동 1개월",
       "temperature": "냉장/냉동",
       "storageMethod": "비닐에 밀봉 후 냉장 또는 냉동",
@@ -323,12 +780,55 @@
       "id": "semi-dried",
       "name": "반건조 생선",
       "emoji": "🐠",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "급냉 반건조 생선 보관법"
+        },
+        {
+          "id": "block-storage-info",
+          "type": "text",
+          "style": {},
+          "title": "🧊  수령 후 즉시 냉동 보관해 주세요.",
+          "content": "<p>당일조업한 생선을 반건조한 후 급속냉동한 제품으로, 수령 직후 냉동실(-18℃ 이하)에 보관해 주세요.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783656633258-iwfd1",
+          "type": "text",
+          "style": {},
+          "title": "냉동 보관기간",
+          "content": "<p><strong>일반보관</strong>: 약 3개월 이내 섭취 권장</p><p><strong>진공보관</strong>: 약 6개월 이내 섭취 권장</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783697663427-zbw9y",
+          "type": "text",
+          "style": {},
+          "title": "해동방법",
+          "content": "<p>드시기 전 냉장실에서 <strong><mark>천천히 자연 해동</mark></strong>해 주세요.</p><p> 빠른 해동이 필요할 경우에는 밀봉된 상태로 찬물에 담가 해동해 주세요.</p><p>해동 후에는 바로 조리하는 것이 가장 맛있게 드실 수 있습니다.</p>"
+        },
+        {
+          "id": "text-1783656481236-pu8pk",
+          "type": "text",
+          "style": {},
+          "title": "주의사항",
+          "content": "<p><strong>재냉동은 품질저하의 원인이 됩니다.</strong></p><p>개봉 후 <strong><mark>밀폐용기 또는 지퍼백</mark></strong>에 담아 보관을 권장드립니다.</p><p>냉동 보관 시 공기를 최대한 제거하면 신선도를 더욱 오래 유지할 수 있습니다.</p>",
+          "titleStyle": {}
+        }
+      ],
       "summary": "통풍이 잘 되는 곳에 냉장 보관",
       "cautions": [
         "습기가 많은 곳 피하기",
         "표면이 끈적해지면 섭취 금지",
         "개봉 후 빠른 섭취 권장"
       ],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783697802773-vc82buzwjte.GIF",
       "shelfLife": "냉장 5~7일",
       "temperature": "냉장",
       "storageMethod": "밀폐 용기에 넣어 냉장 보관",
@@ -339,17 +839,276 @@
       "id": "abalone",
       "name": "전복",
       "emoji": "🦪",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "활전복"
+        },
+        {
+          "id": "block-storage-info",
+          "type": "text",
+          "style": {},
+          "title": "보관방법",
+          "content": "<p>🧊 <strong>수령 후 바로 냉장 또는 냉동 보관해 주세요.</strong></p><p> 활전복은 살아있는 상태로 배송되므로 최대한 신선할 때 드시는 것을 권장합니다.</p><p></p><p><strong>냉장 보관</strong>: 전복을 <strong>젖은 키친타월로 감싼 후, 밀폐용기에 담아</strong> 냉장 보관해 주세요.</p><p><strong>냉동 보관</strong>: 징기 보관 시, <strong>손질 후 물기를 제거하고 밀봉</strong>하여 냉동 보관해 주세요.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783656642566-czmzc",
+          "type": "text",
+          "style": {},
+          "title": "보관기간",
+          "content": "<p><strong>냉장 보관</strong>:  <strong>1~2일 이내</strong> 드시는 것을 권장합니다.</p><p>장시간 물에 담가두면 오히려 빨리 폐사할 수 있으므로 피해주세요.</p><p></p><p><strong>냉동 보관</strong>: <strong>약 2~3개월 이내</strong> 드시는 것을 권장합니다.</p><p>냉동 보관 시 가능한 공기를 최대한 제거하면 신선도를 오래 유지할 수 있습니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-cautions",
+          "type": "text",
+          "style": {},
+          "title": "해동방법",
+          "content": "<p>드시기 전 냉장실에서 <strong>천천히 자연 해동</strong>해 주세요.</p><p></p><p>빠른 해동이 필요할 경우에는 밀봉한 상태로 찬물에 담가 해동하는 것을 권장합니다.</p><p><strong>뜨거운 물이나 전자레인지를 이용한 해동은 식감이 떨어질 수 있어 권장드리지 않습니다.</strong></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783697372165-lpjfy",
+          "type": "text",
+          "style": {},
+          "title": "주의사항",
+          "content": "<p>재냉동은 품질저하의 원인이 됩니다.</p><p>해동 후, 재냉동은 가급적 피해주세요.</p>"
+        }
+      ],
       "summary": "살아있는 전복은 습한 천으로 덮어 냉장 보관",
       "cautions": [
         "물에 담가두지 않기",
         "껍데기가 열리면 신선도 저하",
         "조리 전 솔로 껍데기 닦기"
       ],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783697101778-jbn0xwf807d.MOV",
       "shelfLife": "냉장 2~3일",
       "temperature": "냉장",
       "storageMethod": "젖은 천으로 덮어 냉장 보관",
       "thawingMethod": "냉동 전복은 냉장실에서 8시간 해동",
       "recommendedTemp": "0~4°C"
+    },
+    {
+      "id": "storage-1783605432909",
+      "name": "오징어",
+      "emoji": "🐟",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "오징어 보관법"
+        },
+        {
+          "id": "block-storage-method",
+          "type": "text",
+          "style": {},
+          "title": "생물 오징어",
+          "content": "<p>🧊 <strong>수령 후 가능한 한 빨리 드시는 것을 권장합니다.</strong></p><p>수령 후에는 즉시 냉장 보관하시고, 장기 보관 시 손질 후 냉동 보관해 주세요.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-storage-life",
+          "type": "text",
+          "style": {},
+          "title": "보관기간",
+          "content": "<p><strong>냉장 보관</strong>: <strong>1~2일 이내</strong> 섭취를 권장</p><p><strong>냉동 보관</strong>: 장기 보관 시, 내장을 제거하고 깨끗이 손질한 후 물기를 제거해 밀봉하여 냉동 보관해 주세요.<strong>약 2~3개월 이내</strong> 섭취 권장</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "text-1783698062166-13967",
+          "type": "text",
+          "style": {},
+          "title": "해동방법",
+          "content": "<p>드시기 전 냉장실에서 <strong><mark>천천히 자연 해동</mark></strong>해 주세요.</p><p>빠른 해동이 필요할 경우에는 밀봉한 상태로 찬물에 담가 해동하는 것을 권장합니다.</p><p>해동 후에는 바로 조리하면 더욱 신선한 맛을 즐길 수 있습니다.</p>"
+        },
+        {
+          "id": "block-cautions",
+          "type": "text",
+          "style": {},
+          "title": "주의사항",
+          "content": "<p><strong>재냉동은 품질저하의 원인이 됩니다.</strong></p><p>냉장 보관 중 선도가 떨어질 수 있으므로 장기간 냉장 보관은 피해주세요.</p>",
+          "titleStyle": {}
+        }
+      ],
+      "summary": "",
+      "cautions": [],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783697886927-9qo9z6fmll.jpeg",
+      "isVisible": true,
+      "shelfLife": "",
+      "temperature": "",
+      "storageMethod": "",
+      "thawingMethod": "",
+      "recommendedTemp": ""
+    },
+    {
+      "id": "storage-1783688100648",
+      "name": "멍게",
+      "emoji": "🐟",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "손질 멍게 보관법"
+        },
+        {
+          "id": "block-storage-info",
+          "type": "text",
+          "style": {},
+          "title": "🧊 수령 후 바로 냉장 보관해 주세요.",
+          "content": "<p>손질된 멍게는 신선도가 중요한 수산물이므로, <strong><mark>수령 후 즉시 냉장 보관 및 당일 섭취 권장</mark></strong>드립니다.</p>"
+        },
+        {
+          "id": "block-storage-method",
+          "type": "text",
+          "style": {},
+          "title": "냉동보관",
+          "content": "<p>장기간 보관이 필요할 경우에는 밀폐용기나 지퍼백에 담아 냉동 보관해 주세요.</p><p><strong>약 1개월 이내</strong> 섭취를 권장합니다.</p><p>⚠️ 냉동 보관 시, 식감과 향이 일부 달라질 수 있습니다.</p>"
+        },
+        {
+          "id": "block-storage-temp",
+          "type": "text",
+          "style": {},
+          "title": "해동방법",
+          "content": "<p>드시기 전 냉장실에서 <strong>천천히 자연 해동</strong>해 주세요.</p><p>해동 후에는 바로 드시는 것을 권장합니다.</p>"
+        },
+        {
+          "id": "block-cautions",
+          "type": "text",
+          "style": {},
+          "title": "주의사항",
+          "content": "<p>재냉동은 품질저하의 원인이 될 수 있습니다.</p>"
+        }
+      ],
+      "summary": "",
+      "cautions": [],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783698267340-775pr1xxl3c.png",
+      "isVisible": true,
+      "shelfLife": "",
+      "temperature": "",
+      "storageMethod": "",
+      "thawingMethod": "",
+      "recommendedTemp": ""
+    },
+    {
+      "id": "storage-1783688264338",
+      "name": "백고동",
+      "emoji": "🐟",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {
+            "fontSize": "2xl",
+            "fontWeight": "bold"
+          },
+          "title": "백고동 보관법"
+        },
+        {
+          "id": "block-storage-info",
+          "type": "text",
+          "style": {},
+          "title": "🧊 수령 후 바로 냉장 보관해 주세요.",
+          "content": "<p>백고동은 신선도가 중요한 수산물이므로, 수령 후에는 즉시 냉장 보관하시고 가능한 한 빠른 시일 내에 드시는 것을 권장합니다.</p>"
+        },
+        {
+          "id": "block-storage-method",
+          "type": "text",
+          "style": {},
+          "title": "보관기간",
+          "content": "<p><strong>⚠️ 해당 보관기간은<mark> 조리한 백고동 기준</mark>입니다.</strong></p><p><strong>냉장 소비기한</strong>: 냉장고 3일, 김치냉장고 일주일</p><p><strong>냉동 소비기한</strong>: 약 2~3개월 이내</p>"
+        },
+        {
+          "id": "block-storage-temp",
+          "type": "text",
+          "style": {},
+          "title": "해동방법",
+          "content": "<p>드시기 전 냉장실에서 <strong>천천히 자연 해동</strong>해 주세요.</p><p>빠른 해동이 필요할 경우에는 밀봉한 상태로 찬물에 담가 해동하는 것을 권장합니다.</p><p>해동 후에는 바로 조리해 드시는 것이 가장 좋습니다.</p>"
+        },
+        {
+          "id": "block-storage-life",
+          "type": "text",
+          "style": {},
+          "title": "주의사항",
+          "content": "<p>재냉동은 품질저하의 원인이 됩니다.</p><p><strong>장기간 냉장 보관은 신선도가 떨어질 수 있으므로</strong> 가급적 빠른 섭취를 권장합니다.</p>"
+        }
+      ],
+      "summary": "",
+      "cautions": [],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783698500261-3nbgu7ko4ya.png",
+      "isVisible": true,
+      "shelfLife": "",
+      "temperature": "",
+      "storageMethod": "",
+      "thawingMethod": "",
+      "recommendedTemp": ""
+    },
+    {
+      "id": "storage-1783688104949",
+      "name": "성게알",
+      "emoji": "🐟",
+      "blocks": [
+        {
+          "id": "heading",
+          "type": "heading",
+          "style": {},
+          "title": "손질 성게알 보관법"
+        },
+        {
+          "id": "block-1-1783698787515-maazf",
+          "type": "text",
+          "style": {},
+          "title": "🧊 수령 후 바로 냉장 보관해 주세요.",
+          "content": "<p>손질된 성게알은 신선도가 중요한 수산물이므로, <strong><mark>수령 후 즉시 냉장 보관 및 당일 섭취 권장</mark></strong>드립니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-2-1783698787515-khufo",
+          "type": "text",
+          "style": {},
+          "title": "냉동보관",
+          "content": "<p>장기간 보관이 필요할 경우에는 밀폐용기나 지퍼백에 담아 냉동 보관해 주세요.</p><p><strong>약 1개월 이내</strong> 섭취를 권장합니다.</p><p><strong>⚠️ <mark>냉동 보관 시, 식감과 향이 일부 달라질 수 있습니다.</mark></strong></p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-3-1783698787515-hzguu",
+          "type": "text",
+          "style": {},
+          "title": "해동방법",
+          "content": "<p>드시기 전 냉장실에서 <strong>천천히 자연 해동</strong>해 주세요.</p><p>해동 후에는 바로 드시는 것을 권장합니다.</p>",
+          "titleStyle": {}
+        },
+        {
+          "id": "block-4-1783698787515-4mwio",
+          "type": "text",
+          "style": {},
+          "title": "주의사항",
+          "content": "<p>재냉동은 품질저하의 원인이 될 수 있으며, <strong>맛과 식감을 위해 <mark>수령당일 섭취를 권장</mark>드립니다😭</strong></p>",
+          "titleStyle": {}
+        }
+      ],
+      "summary": "",
+      "cautions": [],
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783698932159-jdit4619pxk.png",
+      "isVisible": true,
+      "shelfLife": "",
+      "temperature": "",
+      "storageMethod": "",
+      "thawingMethod": "",
+      "recommendedTemp": ""
     }
   ],
   "productPreviews": [
@@ -360,29 +1119,50 @@
       "imageLabel": "참문어"
     },
     {
-      "id": "semi-dried",
-      "name": "반건조 생선",
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783605110215-gnucflc7rp7.jpeg",
-      "imageLabel": "반건조 생선"
-    },
-    {
       "id": "abalone",
       "name": "전복",
       "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783605043956-ohyie3kawir.jpeg",
       "imageLabel": "전복"
     },
     {
+      "id": "semi-dried",
+      "name": "반건조 생선",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783605110215-gnucflc7rp7.jpeg",
+      "imageLabel": "반건조 생선"
+    },
+    {
+      "id": "storage-1783605432909",
+      "name": "오징어",
+      "anchorId": "storage-1783605432909",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783605628256-f1rujdca4t7.jpeg",
+      "imageLabel": "오징어"
+    },
+    {
+      "id": "storage-1783688100648",
+      "name": "멍게",
+      "anchorId": "storage-1783688100648",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783688588516-7rjoyosh48y.png",
+      "imageLabel": "멍게"
+    },
+    {
+      "id": "storage-1783688264338",
+      "name": "백고동",
+      "anchorId": "storage-1783688264338",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783688576168-qkh33smbc88.png",
+      "imageLabel": "백고동"
+    },
+    {
+      "id": "storage-1783688104949",
+      "name": "성게알",
+      "anchorId": "storage-1783688104949",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783688583384-8to5dxyf4ny.png",
+      "imageLabel": "성게알"
+    },
+    {
       "id": "gwamegi",
       "name": "과메기",
       "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783605082074-sbkoj9ofc5g.jpeg",
       "imageLabel": "과메기"
-    },
-    {
-      "id": "storage-1783605432909",
-      "name": "기타 수산물",
-      "anchorId": "storage-1783605432909",
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783605628256-f1rujdca4t7.jpeg",
-      "imageLabel": "기타 수산물"
     }
   ],
   "handlingPreviews": [
@@ -407,10 +1187,17 @@
       "imageLabel": "전복"
     },
     {
-      "id": "gwamegi",
-      "name": "과메기",
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783604841570-gxu28mndrq.jpg",
-      "imageLabel": "과메기"
+      "id": "handling-1783688242047",
+      "name": "백고동",
+      "anchorId": "handling-1783688242047",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783688615808-08ju3sy4s0yx.png",
+      "imageLabel": "백고동"
+    },
+    {
+      "id": "octopus",
+      "name": "게종류",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783604987514-tkfkkw0xxna.png",
+      "imageLabel": "게종류"
     },
     {
       "id": "abalone",
@@ -419,10 +1206,10 @@
       "imageLabel": "생선류"
     },
     {
-      "id": "octopus",
-      "name": "게종류",
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783604987514-tkfkkw0xxna.png",
-      "imageLabel": "게종류"
+      "id": "gwamegi",
+      "name": "과메기",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/migrated/1783604841570-gxu28mndrq.jpg",
+      "imageLabel": "과메기"
     },
     {
       "id": "eel",
@@ -498,6 +1285,33 @@
         {
           "type": "text",
           "title": "보관기간"
+        },
+        {
+          "type": "text",
+          "title": "해동방법"
+        },
+        {
+          "type": "text",
+          "title": "주의사항"
+        }
+      ]
+    },
+    {
+      "id": "template-1783698776215-0dgca",
+      "kind": "storage",
+      "name": "멍게.성게",
+      "blocks": [
+        {
+          "type": "heading",
+          "title": "손질 {seafood} 보관법"
+        },
+        {
+          "type": "text",
+          "title": "🧊 수령 후 바로 냉장 보관해 주세요."
+        },
+        {
+          "type": "text",
+          "title": "냉동보관"
         },
         {
           "type": "text",

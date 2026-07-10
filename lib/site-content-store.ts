@@ -41,12 +41,29 @@ export async function loadSiteContentFromStore(
     .maybeSingle();
 
   if (error) {
-    // Fallback: committed JSON keeps customer pages up if env keys are misconfigured.
-    const fileContent = await readSiteContentFile();
-    if (fileContent) {
-      console.error(`Supabase load failed (${error.message}); using site-content.json fallback.`);
-      return normalize(fileContent);
+    // Build-time static analysis can surface "Dynamic server usage" — don't treat as CMS failure.
+    if (
+      error.message.includes("Dynamic server usage") ||
+      error.message.includes("no-store fetch")
+    ) {
+      throw error;
     }
+
+    // Committed JSON is only a build/dev backup. On Vercel runtime it must NOT
+    // override Supabase — that served old storageGuides[].imageUrl after CMS saves.
+    const isProductionBuild = process.env.NEXT_PHASE === "phase-production-build";
+    const allowJsonFallback = !isVercelRuntime() || isProductionBuild;
+
+    if (allowJsonFallback) {
+      const fileContent = await readSiteContentFile();
+      if (fileContent) {
+        console.error(
+          `Supabase load failed (${error.message}); using site-content.json fallback.`
+        );
+        return normalize(fileContent);
+      }
+    }
+
     throw new Error(`Failed to load site content: ${error.message}`);
   }
 

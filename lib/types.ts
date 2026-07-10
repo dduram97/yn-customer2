@@ -30,6 +30,8 @@ export interface GuideItem {
   summary: string;
   /** 상세 페이지 대표 이미지 (홈 카드 이미지와 분리) */
   imageUrl?: string;
+  /** 대표 영상이면 재생 시 무음 처리 */
+  heroMuted?: boolean;
   /** false면 홈·검색·목록에서 숨김. 미설정 시 공개 */
   isVisible?: boolean;
   mediaItems?: GuideMediaItem[];

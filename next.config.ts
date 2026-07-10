@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: getSupabaseImagePatterns(),
   },
+  experimental: {
+    // Keep recently visited pages (e.g. home) warm so back navigation feels instant.
+    staleTimes: {
+      dynamic: 30,
+      static: 180,
+    },
+  },
 };
 
 export default nextConfig;

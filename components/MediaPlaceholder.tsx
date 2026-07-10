@@ -8,6 +8,8 @@ interface MediaPlaceholderProps {
   aspectRatio?: "hero" | "section" | "square";
   className?: string;
   compact?: boolean;
+  /** When src is video, mute playback (default false). */
+  muted?: boolean;
 }
 
 const ASPECT_CLASSES = {
@@ -28,6 +30,7 @@ export default function MediaPlaceholder({
   aspectRatio = "section",
   className,
   compact = false,
+  muted = false,
 }: MediaPlaceholderProps) {
   if (src && isVideoMedia(src)) {
     return (
@@ -39,11 +42,12 @@ export default function MediaPlaceholder({
         )}
       >
         <video
-          key={src}
+          key={`${src}-${muted ? "muted" : "sound"}`}
           src={src}
           className="absolute inset-0 h-full w-full object-cover"
           controls
           playsInline
+          muted={muted}
           preload="metadata"
           aria-label={alt ?? label}
         />

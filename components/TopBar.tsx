@@ -17,13 +17,29 @@ export default function TopBar() {
   const pathname = usePathname();
   const seafoodTitle = getSeafoodPageTitle(pathname);
   const title = seafoodTitle ?? PAGE_TITLES[pathname] ?? "영남수산";
+  const isSeafoodDetail = Boolean(seafoodTitle);
+
+  const handleBack = () => {
+    // Seafood detail → home: prefer cached home route for instant paint.
+    if (isSeafoodDetail) {
+      router.push("/");
+      return;
+    }
+
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+      return;
+    }
+
+    router.push("/");
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white pt-8">
       <div className="mx-auto flex h-12 max-w-lg items-center px-2">
         <button
           type="button"
-          onClick={() => router.back()}
+          onClick={handleBack}
           aria-label="뒤로가기"
           className="flex h-10 w-10 items-center justify-center text-black active:opacity-60"
         >

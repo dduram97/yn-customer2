@@ -39,6 +39,41 @@ function readEnv(name: string): string | undefined {
   return value || undefined;
 }
 
+/**
+ * Cursor / local MITM proxies (HTTP_PROXY=127.0.0.1:…) break Supabase HTTPS.
+ * Ensure the Supabase project host is listed in NO_PROXY before createClient/fetch.
+ */
+function ensureSupabaseBypassesProxy(supabaseUrl: string): void {
+  let hostname: string;
+  try {
+    hostname = new URL(supabaseUrl).hostname;
+  } catch {
+    return;
+  }
+
+  if (!hostname) return;
+
+  const keys = ["NO_PROXY", "no_proxy"] as const;
+  for (const key of keys) {
+    const current = process.env[key] ?? "";
+    const parts = current
+      .split(",")
+      .map((part) => part.trim())
+      .filter(Boolean);
+    const needed = [hostname, ".supabase.co", "*.supabase.co"];
+    let changed = false;
+    for (const entry of needed) {
+      if (!parts.includes(entry)) {
+        parts.push(entry);
+        changed = true;
+      }
+    }
+    if (changed) {
+      process.env[key] = parts.join(",");
+    }
+  }
+}
+
 export function isSupabaseConfigured(): boolean {
   return Boolean(
     readEnv("NEXT_PUBLIC_SUPABASE_URL") && readEnv("SUPABASE_SERVICE_ROLE_KEY")
@@ -57,6 +92,7 @@ export function createSupabaseAdmin(): SupabaseClient {
   }
 
   assertServiceRoleKey(serviceRoleKey);
+  ensureSupabaseBypassesProxy(url);
 
   return createClient(url, serviceRoleKey, {
     auth: {

@@ -23,6 +23,7 @@ import {
   instantiateGuideTemplate,
 } from "@/lib/guide-templates";
 import { openGuidePreview } from "@/lib/guide-preview";
+import { isVideoMedia } from "@/lib/media";
 import { getSeafoodGuidePath, resolveSeafoodSlug } from "@/lib/seafood-guide";
 import type {
   EatingGuide,
@@ -209,20 +210,37 @@ function TemplateApplyField({
 function ImageUploadField({
   label,
   imageUrl,
+  heroMuted,
   onUpload,
   onRemove,
+  onHeroMutedChange,
 }: {
   label: string;
   imageUrl?: string;
+  heroMuted?: boolean;
   onUpload: (file: File) => void;
   onRemove?: () => void;
+  onHeroMutedChange?: (muted: boolean) => void;
 }) {
+  const isVideo = isVideoMedia(imageUrl);
+
   return (
     <div className="space-y-2">
       <p className="text-[13px] font-medium text-black">{label}</p>
       {imageUrl ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={imageUrl} alt="" className="max-h-40 rounded-xl border border-border" />
+        isVideo ? (
+          <video
+            src={imageUrl}
+            className="max-h-40 rounded-xl border border-border"
+            controls
+            playsInline
+            muted={heroMuted === true}
+            preload="metadata"
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={imageUrl} alt="" className="max-h-40 rounded-xl border border-border" />
+        )
       ) : null}
       <div className="flex flex-wrap items-center gap-2">
         <input
@@ -249,6 +267,17 @@ function ImageUploadField({
           </button>
         ) : null}
       </div>
+      {isVideo && onHeroMutedChange ? (
+        <label className="flex items-center gap-2 text-[13px] text-black">
+          <input
+            type="checkbox"
+            checked={heroMuted === true}
+            onChange={(event) => onHeroMutedChange(event.target.checked)}
+            className="h-4 w-4 accent-black"
+          />
+          재생 시 무음 처리
+        </label>
+      ) : null}
     </div>
   );
 }
@@ -398,10 +427,12 @@ function GuideEditorPanel({
       <ImageUploadField
         label="대표 이미지 (상세 페이지 전용)"
         imageUrl={heroImageUrl}
+        heroMuted={guide.heroMuted === true}
         onUpload={(file) =>
           onUpload(file, (url) => onGuidePatch({ imageUrl: url }))
         }
-        onRemove={() => onGuidePatch({ imageUrl: "" })}
+        onRemove={() => onGuidePatch({ imageUrl: "", heroMuted: false })}
+        onHeroMutedChange={(muted) => onGuidePatch({ heroMuted: muted })}
       />
       <p className="text-[12px] text-body">
         홈 카드뉴스 이미지와 별도로 관리됩니다. 상세 페이지에만 표시됩니다.
@@ -490,7 +521,11 @@ export function StorageGuidesAdminSection({
   const contentStatus = activeItem.status;
 
   const updateGuide = (patch: Partial<StorageGuide>) => {
-    onChange(upsertStorageGuide(storageGuidesRef.current, preview, patch));
+    const next = upsertStorageGuide(storageGuidesRef.current, preview, patch);
+    // Keep ref in sync before React re-renders so a later blocks patch
+    // cannot overwrite a just-uploaded imageUrl from a stale array.
+    storageGuidesRef.current = next;
+    onChange(next);
   };
 
   const handleBlocksChange = (blocks: GuideContentBlock[]) => {
@@ -577,7 +612,9 @@ export function EatingGuidesAdminSection({
   const contentStatus = activeItem.status;
 
   const updateGuide = (patch: Partial<EatingGuide>) => {
-    onChange(upsertEatingGuide(eatingGuidesRef.current, preview, patch));
+    const next = upsertEatingGuide(eatingGuidesRef.current, preview, patch);
+    eatingGuidesRef.current = next;
+    onChange(next);
   };
 
   const handleBlocksChange = (blocks: GuideContentBlock[]) => {

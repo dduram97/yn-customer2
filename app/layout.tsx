@@ -13,7 +13,9 @@ const notoSansKr = Noto_Sans_KR({
   display: "swap",
 });
 
-export const dynamic = "force-dynamic";
+// Home + shell can be cached briefly; admin save calls revalidatePath.
+// Seafood detail pages stay force-dynamic for immediate CMS updates.
+export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
   const { siteConfig } = await getSiteContent();

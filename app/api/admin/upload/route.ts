@@ -3,7 +3,6 @@ import { promises as fs } from "fs";
 import path from "path";
 import { assertSupabaseOnVercel } from "@/lib/deployment";
 import { isAllowedMediaFile } from "@/lib/media";
-import { revalidateCustomerPages } from "@/lib/revalidate-site";
 import { isSupabaseConfigured } from "@/lib/supabase/server";
 import { uploadMediaToSupabase } from "@/lib/supabase/upload";
 
@@ -30,9 +29,10 @@ export async function POST(request: Request) {
   try {
     assertSupabaseOnVercel();
 
+    // Upload only stores the file. Do NOT revalidate customer pages here —
+    // site_content still has the old imageUrl until the admin clicks Save.
     if (isSupabaseConfigured()) {
       const uploaded = await uploadMediaToSupabase(file);
-      revalidateCustomerPages();
       return NextResponse.json({ url: uploaded.url });
     }
 
@@ -45,7 +45,6 @@ export async function POST(request: Request) {
     await fs.mkdir(uploadDir, { recursive: true });
     await fs.writeFile(path.join(uploadDir, filename), buffer);
 
-    revalidateCustomerPages();
     return NextResponse.json({ url: `/uploads/${filename}` });
   } catch (error) {
     const message =

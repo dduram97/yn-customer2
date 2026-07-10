@@ -15,7 +15,8 @@ const ALLOWED_MEDIA_EXTENSIONS = new Set([
 
 export function isVideoMedia(src?: string): boolean {
   if (!src) return false;
-  const ext = src.slice(src.lastIndexOf(".")).toLowerCase();
+  const path = src.split("?")[0].split("#")[0];
+  const ext = path.slice(path.lastIndexOf(".")).toLowerCase();
   return VIDEO_EXTENSIONS.has(ext);
 }
 

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { assertSupabaseOnVercel } from "@/lib/deployment";
-import { getSiteContent, saveSiteContent } from "@/lib/site-content";
+import { getSiteContentFresh, saveSiteContent } from "@/lib/site-content";
 import { revalidateCustomerPages } from "@/lib/revalidate-site";
 import type { SiteContent } from "@/lib/types";
 
@@ -8,7 +8,8 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const content = await getSiteContent();
+    // Admin must see the same store state customer detail pages read (fresh).
+    const content = await getSiteContentFresh();
     return NextResponse.json(content);
   } catch (error) {
     const message =

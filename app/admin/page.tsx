@@ -39,14 +39,16 @@ export default function AdminPage() {
     contentRef.current = content;
   }, [content]);
 
-  /** Always merge into the latest content to avoid stale closures on async uploads. */
+  /**
+   * Merge into the latest content. Update contentRef synchronously so Save
+   * never serializes a pre-upload snapshot while the UI already shows the new hero.
+   */
   const patchContent = (updater: (prev: SiteContent) => SiteContent) => {
-    setContent((prev) => {
-      if (!prev) return prev;
-      const next = updater(prev);
-      contentRef.current = next;
-      return next;
-    });
+    const prev = contentRef.current;
+    if (!prev) return;
+    const next = updater(prev);
+    contentRef.current = next;
+    setContent(next);
   };
 
   useEffect(() => {
@@ -82,8 +84,12 @@ export default function AdminPage() {
       if (refreshed && !refreshed.error) {
         contentRef.current = refreshed;
         setContent(refreshed);
+        setMessage("저장되었습니다.");
+      } else {
+        setMessage(
+          "저장은 완료됐지만 확인 조회에 실패했습니다. 고객 페이지를 새로고침해 확인해 주세요."
+        );
       }
-      setMessage("저장되었습니다.");
     } else {
       setMessage(
         typeof data.error === "string" ? data.error : "저장에 실패했습니다."

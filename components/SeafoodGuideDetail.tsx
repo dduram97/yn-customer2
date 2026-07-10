@@ -18,6 +18,7 @@ interface SeafoodGuideDetailProps {
   name: string;
   pageTitle: string;
   heroImageUrl?: string;
+  heroMuted?: boolean;
   description: string;
   blocks?: GuideContentBlock[];
   steps: GuideStep[];
@@ -73,6 +74,7 @@ export default function SeafoodGuideDetail({
   name,
   pageTitle,
   heroImageUrl,
+  heroMuted = false,
   description,
   blocks = [],
   steps,
@@ -93,6 +95,7 @@ export default function SeafoodGuideDetail({
             src={heroImageUrl}
             aspectRatio="section"
             className="border-0"
+            muted={heroMuted}
           />
         </div>
       ) : null}

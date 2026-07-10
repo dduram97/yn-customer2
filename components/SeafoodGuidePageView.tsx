@@ -20,6 +20,7 @@ interface SeafoodGuidePageViewProps {
   blocks: GuideContentBlock[];
   steps: GuideStep[];
   heroImageUrl?: string;
+  heroMuted?: boolean;
   isHidden: boolean;
   relatedLink?: RelatedGuideLink | null;
 }
@@ -62,6 +63,7 @@ export default function SeafoodGuidePageView({
   blocks,
   steps,
   heroImageUrl,
+  heroMuted = false,
   isHidden,
   relatedLink,
 }: SeafoodGuidePageViewProps) {
@@ -103,6 +105,7 @@ export default function SeafoodGuidePageView({
       <SeafoodGuideDetail
         pageTitle={pageTitle}
         heroImageUrl={resolvedHeroImageUrl}
+        heroMuted={heroMuted}
         description={description}
         blocks={useBlockLayout ? contentBlocks : []}
         steps={isPreview ? [] : steps}
