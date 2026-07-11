@@ -135,7 +135,7 @@ function SearchIcon() {
       height="18"
       viewBox="0 0 24 24"
       fill="none"
-      className="shrink-0 text-body"
+      className="shrink-0 text-black"
       aria-hidden
     >
       <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.8" />
