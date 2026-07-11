@@ -13,15 +13,39 @@ const ALLOWED_MEDIA_EXTENSIONS = new Set([
   ".ogg",
 ]);
 
-export function isVideoMedia(src?: string): boolean {
-  if (!src) return false;
+function getMediaPathExtension(src: string): string {
   // blob:…#photo.mov — hash carries the original filename for type detection
   const hashName = src.includes("#")
     ? decodeURIComponent(src.slice(src.indexOf("#") + 1))
     : "";
   const path = (hashName || src).split("?")[0].split("#")[0];
-  const ext = path.slice(path.lastIndexOf(".")).toLowerCase();
-  return VIDEO_EXTENSIONS.has(ext);
+  return path.slice(path.lastIndexOf(".")).toLowerCase();
+}
+
+export function isVideoMedia(src?: string): boolean {
+  if (!src) return false;
+  return VIDEO_EXTENSIONS.has(getMediaPathExtension(src));
+}
+
+const STILL_IMAGE_EXTENSIONS = new Set([
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp",
+  ".avif",
+  ".bmp",
+]);
+
+/**
+ * List/home card thumbnails: still images only (no GIF animation, no video/MOV).
+ * URLs without a recognized still extension are rejected so heavy media is never
+ * pulled into ImagePlaceholder cards.
+ */
+export function isStillImageMedia(src?: string): boolean {
+  if (!src?.trim()) return false;
+  const ext = getMediaPathExtension(src.trim());
+  if (!ext.startsWith(".")) return false;
+  return STILL_IMAGE_EXTENSIONS.has(ext);
 }
 
 /** Strip filename hash from blob preview URLs for <img>/<video src>. */

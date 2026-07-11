@@ -4,6 +4,7 @@ import type {
   StorageGuide,
 } from "@/lib/types";
 import { resolveStorageGuideForPreview } from "@/lib/guide-admin";
+import { isStillImageMedia } from "@/lib/media";
 
 export function resolveGuidePageTitle(
   blocks: GuideContentBlock[],
@@ -27,19 +28,21 @@ export function resolveGuideThumbnail(guide?: { imageUrl?: string }): string | u
 }
 
 /**
- * /guide/storage list card image:
- * 1) storageGuides matched by preview.id (slug) → imageUrl
- * 2) else productPreviews.imageUrl
- * 3) else undefined (SeafoodListCard / ImagePlaceholder empty state)
+ * /guide/storage list card image (still images only — no GIF/MOV/video):
+ * 1) productPreviews.imageUrl when it is a still image
+ * 2) else storageGuides.imageUrl when it is a still image
+ * 3) else undefined → SeafoodListCard / ImagePlaceholder empty state
  */
 export function resolveStorageListCardImage(
   preview: ProductPreview,
   storageGuides: StorageGuide[]
 ): string | undefined {
+  const card = preview.imageUrl?.trim();
+  if (card && isStillImageMedia(card)) return card;
+
   const guide = resolveStorageGuideForPreview(storageGuides, preview);
   const hero = guide?.imageUrl?.trim();
-  if (hero) return hero;
+  if (hero && isStillImageMedia(hero)) return hero;
 
-  const fallback = preview.imageUrl?.trim();
-  return fallback || undefined;
+  return undefined;
 }
