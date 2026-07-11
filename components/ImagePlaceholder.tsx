@@ -8,6 +8,9 @@ interface ImagePlaceholderProps {
   aspectRatio?: "hero" | "section" | "square";
   className?: string;
   compact?: boolean;
+  /** When true, use Next.js image optimizer for remote URLs (home/list cards). */
+  optimized?: boolean;
+  sizes?: string;
 }
 
 const ASPECT_CLASSES = {
@@ -23,6 +26,8 @@ export default function ImagePlaceholder({
   aspectRatio = "section",
   className,
   compact = false,
+  optimized = false,
+  sizes = "(max-width: 512px) 100vw, 512px",
 }: ImagePlaceholderProps) {
   if (src) {
     const isRemote = /^https?:\/\//i.test(src) || src.startsWith("/uploads/");
@@ -40,9 +45,9 @@ export default function ImagePlaceholder({
           src={src}
           alt={alt ?? label}
           fill
-          unoptimized={isRemote}
+          unoptimized={isRemote && !optimized}
           className="object-cover"
-          sizes="(max-width: 512px) 100vw, 512px"
+          sizes={sizes}
         />
       </div>
     );

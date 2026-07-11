@@ -34,6 +34,8 @@ export default function StorageScroll({ previews }: StorageScrollProps) {
                   src={product.imageUrl}
                   aspectRatio="square"
                   compact
+                  optimized
+                  sizes="130px"
                   className="h-full rounded-none border-0"
                 />
               </div>

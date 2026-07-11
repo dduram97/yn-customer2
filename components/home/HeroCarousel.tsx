@@ -19,17 +19,20 @@ function getNextIndex(current: number, total: number) {
   return (current + 1) % total;
 }
 
+/** First paint: HAVE_CURRENT_DATA / canplay — not full canplaythrough buffer. */
 function waitForVideoReady(video: HTMLVideoElement) {
-  if (video.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
+  if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
     return Promise.resolve();
   }
 
   return new Promise<void>((resolve) => {
     const onReady = () => {
-      video.removeEventListener("canplaythrough", onReady);
+      video.removeEventListener("loadeddata", onReady);
+      video.removeEventListener("canplay", onReady);
       resolve();
     };
-    video.addEventListener("canplaythrough", onReady);
+    video.addEventListener("loadeddata", onReady);
+    video.addEventListener("canplay", onReady);
   });
 }
 
@@ -103,7 +106,7 @@ function PersistentLayer({
         loop
         playsInline
         autoPlay
-        preload="auto"
+        preload="metadata"
         disablePictureInPicture
         controls={false}
         controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
@@ -235,34 +238,17 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
     [crossfadeTo]
   );
 
+  // Mount: load/play the first (active) slide only. Next slides prepare in crossfadeTo.
   useEffect(() => {
     if (slides.length === 0) return;
 
     const firstSlide = slides[0];
-    if (!firstSlide?.imageUrl) return;
+    if (!firstSlide?.imageUrl || !isVideoMedia(firstSlide.imageUrl)) return;
 
-    const firstUrl = firstSlide.imageUrl;
+    const video = videoRef0.current;
+    if (!video) return;
 
-    void (async () => {
-      if (isVideoMedia(firstUrl)) {
-        const video = videoRef0.current;
-        if (video) {
-          await prepareVideo(video, firstUrl);
-        }
-      }
-
-      if (slides.length > 1) {
-        const nextIndex = getNextIndex(0, slides.length);
-        const nextSlide = slides[nextIndex];
-        if (nextSlide?.imageUrl && isVideoMedia(nextSlide.imageUrl)) {
-          const video = videoRef1.current;
-          if (video) {
-            video.src = nextSlide.imageUrl;
-            video.load();
-          }
-        }
-      }
-    })();
+    void prepareVideo(video, firstSlide.imageUrl);
   }, [slides]);
 
   useEffect(() => {
@@ -274,25 +260,6 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
 
     return () => window.clearInterval(timer);
   }, [goToNext, slides.length]);
-
-  useEffect(() => {
-    if (slides.length <= 1) return;
-
-    const nextIndex = getNextIndex(activeIndex, slides.length);
-    const nextSlide = slides[nextIndex];
-    if (!nextSlide?.imageUrl || !isVideoMedia(nextSlide.imageUrl)) return;
-
-    const inactiveLayer: LayerId = activeLayer === 0 ? 1 : 0;
-    const video = getVideoRef(inactiveLayer).current;
-    if (!video) return;
-
-    if (layerSlides[inactiveLayer] === nextIndex && video.readyState >= 3) {
-      return;
-    }
-
-    video.src = nextSlide.imageUrl;
-    video.load();
-  }, [activeIndex, activeLayer, getVideoRef, layerSlides, slides]);
 
   const currentSlide = slides[activeIndex];
   if (!currentSlide) return null;

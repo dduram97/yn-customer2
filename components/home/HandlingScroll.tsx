@@ -33,6 +33,8 @@ export default function HandlingScroll({ previews }: HandlingScrollProps) {
                 src={product.imageUrl}
                 aspectRatio="square"
                 compact
+                optimized
+                sizes="72px"
                 className="h-full rounded-full border-0"
               />
             </div>

@@ -28,6 +28,8 @@ export default function SeafoodListCard({
             src={imageUrl}
             aspectRatio="square"
             compact
+            optimized
+            sizes="88px"
             className="h-full rounded-none border-0"
           />
         </div>
