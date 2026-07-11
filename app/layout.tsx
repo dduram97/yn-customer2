@@ -48,7 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    // welcomeGuardScript may add yn-welcome-pending before hydrate
+    <html lang="ko" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: welcomeGuardScript }} />
       </head>

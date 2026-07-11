@@ -112,6 +112,9 @@ function PersistentLayer({
         controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
         tabIndex={-1}
         aria-hidden
+        // SSR may emit camelCase attrs (playsInline/autoPlay); the browser
+        // normalizes to lowercase — suppress to avoid false hydration warnings.
+        suppressHydrationWarning
       />
 
       {!isVideo && imageUrl ? (
