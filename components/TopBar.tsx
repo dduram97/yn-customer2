@@ -20,8 +20,9 @@ export default function TopBar() {
   const isSeafoodDetail = Boolean(seafoodTitle);
 
   const handleBack = () => {
-    // Seafood detail → home: prefer cached home route for instant paint.
-    if (isSeafoodDetail) {
+    // Prefer cached home route (same as seafood detail) — avoids history POP
+    // landing on QuickNav /#hash entries and scroll restoration jank.
+    if (isSeafoodDetail || pathname === "/guide/storage") {
       router.push("/");
       return;
     }
