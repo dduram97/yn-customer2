@@ -89,8 +89,8 @@ export default function ActionBar({ contactInfo }: { contactInfo: ContactInfo })
                 href={item.href}
                 onClick={() => {
                   trackMenuClick(item.label, pathname);
-                  // Bust client router cache so newly published news appears.
-                  if (item.href === "/notice") {
+                  // Bust client router cache for notice list / home featured news.
+                  if (item.href === "/notice" || item.href === "/") {
                     router.refresh();
                   }
                 }}

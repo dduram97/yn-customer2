@@ -39,6 +39,7 @@ export async function POST(request: Request) {
       mediaType?: string | null;
       imageUrl?: string | null;
       isActive?: boolean;
+      showOnHome?: boolean;
     };
 
     const item = await createCustomerNews({
@@ -47,6 +48,7 @@ export async function POST(request: Request) {
       mediaUrl: body.mediaUrl ?? body.imageUrl,
       mediaType: parseMediaType(body.mediaType) ?? undefined,
       isActive: body.isActive,
+      showOnHome: body.showOnHome,
     });
     return NextResponse.json({ item });
   } catch (error) {
@@ -67,6 +69,7 @@ export async function PUT(request: Request) {
       mediaType?: string | null;
       imageUrl?: string | null;
       isActive?: boolean;
+      showOnHome?: boolean;
     };
 
     if (!body.id) {
@@ -93,6 +96,7 @@ export async function PUT(request: Request) {
           }
         : {}),
       isActive: body.isActive,
+      showOnHome: body.showOnHome,
     });
     return NextResponse.json({ item });
   } catch (error) {

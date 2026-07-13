@@ -23,6 +23,7 @@ type Draft = {
   mediaUrl: string;
   mediaType: CustomerNewsMediaType | null;
   isActive: boolean;
+  showOnHome: boolean;
 };
 
 const EMPTY_DRAFT: Draft = {
@@ -31,6 +32,7 @@ const EMPTY_DRAFT: Draft = {
   mediaUrl: "",
   mediaType: null,
   isActive: true,
+  showOnHome: false,
 };
 
 const MEDIA_ACCEPT =
@@ -132,6 +134,7 @@ export default function CustomerNewsAdminSection({
       mediaUrl: currentDraft.mediaUrl || null,
       mediaType: currentDraft.mediaType,
       isActive: currentDraft.isActive,
+      showOnHome: currentDraft.showOnHome,
     };
 
     if (currentEditingId === "new") {
@@ -182,6 +185,7 @@ export default function CustomerNewsAdminSection({
       mediaUrl: item.mediaUrl ?? item.imageUrl ?? "",
       mediaType: item.mediaType,
       isActive: item.isActive,
+      showOnHome: item.showOnHome,
     });
     setMessage("");
   };
@@ -263,9 +267,9 @@ export default function CustomerNewsAdminSection({
         <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-[13px] text-red-700">
           {error}
           <p className="mt-1 text-[12px]">
-            Supabase에 <code>customer-news.sql</code> 실행 후, 가능하면{" "}
-            <code>customer-news-media.sql</code>도 적용해 주세요. (미적용 시에도
-            image_url로 저장됩니다)
+            Supabase에 <code>customer-news.sql</code> 실행 후, 필요 시{" "}
+            <code>customer-news-media.sql</code>·
+            <code>customer-news-featured.sql</code>도 적용해 주세요.
           </p>
         </div>
       ) : null}
@@ -348,6 +352,22 @@ export default function CustomerNewsAdminSection({
             />
             고객 페이지에 노출
           </label>
+          <label className="flex items-start gap-2 text-[14px] text-black">
+            <input
+              type="checkbox"
+              className="mt-1"
+              checked={draft.showOnHome}
+              onChange={(e) =>
+                setDraft({ ...draft, showOnHome: e.target.checked })
+              }
+            />
+            <span>
+              홈 대표 소식으로 표시
+              <span className="mt-0.5 block text-[12px] text-body">
+                한 번에 1개만 가능합니다. 다른 대표 소식은 자동으로 해제됩니다.
+              </span>
+            </span>
+          </label>
           <div className="flex gap-2">
             <button
               type="button"
@@ -400,19 +420,26 @@ export default function CustomerNewsAdminSection({
                   )}
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className="flex items-start justify-between gap-2">
+                  <div className="flex flex-wrap items-start justify-between gap-2">
                     <p className="text-[15px] font-bold text-black">
                       {item.title}
                     </p>
-                    <span
-                      className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] ${
-                        item.isActive
-                          ? "bg-black text-white"
-                          : "bg-placeholder text-body"
-                      }`}
-                    >
-                      {item.isActive ? "노출 ON" : "노출 OFF"}
-                    </span>
+                    <div className="flex shrink-0 flex-wrap justify-end gap-1">
+                      {item.showOnHome ? (
+                        <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-medium text-amber-900">
+                          ⭐ 홈 대표 소식
+                        </span>
+                      ) : null}
+                      <span
+                        className={`rounded-full px-2 py-0.5 text-[11px] ${
+                          item.isActive
+                            ? "bg-black text-white"
+                            : "bg-placeholder text-body"
+                        }`}
+                      >
+                        {item.isActive ? "노출 ON" : "노출 OFF"}
+                      </span>
+                    </div>
                   </div>
                   <p className="mt-1 text-[12px] text-body">
                     {item.createdAt.slice(0, 10)} ·{" "}

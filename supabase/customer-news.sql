@@ -13,6 +13,7 @@ create table if not exists public.customer_news (
     media_type is null or media_type in ('image', 'gif', 'video')
   ),
   is_active boolean not null default true,
+  show_on_home boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );

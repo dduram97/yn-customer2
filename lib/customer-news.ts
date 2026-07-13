@@ -17,6 +17,7 @@ export interface CustomerNewsItem {
   /** @deprecated Prefer mediaUrl — kept for older callers. */
   imageUrl: string | null;
   isActive: boolean;
+  showOnHome: boolean;
   createdAt: string;
   updatedAt: string;
 }
@@ -29,6 +30,7 @@ export interface CustomerNewsInput {
   /** Legacy alias — mapped to mediaUrl when mediaUrl omitted. */
   imageUrl?: string | null;
   isActive?: boolean;
+  showOnHome?: boolean;
 }
 
 export interface CustomerNewsPageResult {
@@ -49,6 +51,7 @@ type NewsRow = {
   media_url?: string | null;
   media_type?: string | null;
   is_active: boolean;
+  show_on_home?: boolean | null;
   created_at: string;
   updated_at: string;
 };
@@ -84,6 +87,7 @@ function mapRow(row: NewsRow): CustomerNewsItem {
     mediaType: resolveMediaType(row, mediaUrl),
     imageUrl: mediaUrl,
     isActive: row.is_active,
+    showOnHome: row.show_on_home === true,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
   };
@@ -107,13 +111,37 @@ function revalidateNewsPages(id?: string) {
 function isMissingMediaColumnError(error: unknown): boolean {
   if (!error || typeof error !== "object") return false;
   const err = error as { code?: string; message?: string };
-  if (err.code === "PGRST204") return true;
+  if (err.code === "PGRST204") {
+    const message = (err.message ?? "").toLowerCase();
+    return message.includes("media_url") || message.includes("media_type");
+  }
   const message = (err.message ?? "").toLowerCase();
   return (
     message.includes("media_url") ||
     message.includes("media_type") ||
     message.includes("schema cache")
   );
+}
+
+function isMissingShowOnHomeColumnError(error: unknown): boolean {
+  if (!error || typeof error !== "object") return false;
+  const err = error as { code?: string; message?: string };
+  const message = (err.message ?? "").toLowerCase();
+  return message.includes("show_on_home");
+}
+
+/** Keep only one home-featured row. */
+async function clearOtherHomeFeatured(exceptId: string): Promise<void> {
+  const supabase = createSupabaseAdmin();
+  const { error } = await supabase
+    .from("customer_news")
+    .update({ show_on_home: false })
+    .eq("show_on_home", true)
+    .neq("id", exceptId);
+
+  if (error && !isMissingShowOnHomeColumnError(error)) {
+    throw error;
+  }
 }
 
 function buildLegacyImageOnlyRow(fields: {
@@ -186,6 +214,27 @@ export async function listActiveCustomerNews(
   const { data, error } = await query;
   if (error) throw error;
   return (data as NewsRow[] | null)?.map(mapRow) ?? [];
+}
+
+/** Single home-featured active news (at most one). */
+export async function getHomeFeaturedCustomerNews(): Promise<CustomerNewsItem | null> {
+  ensureNewsDb();
+  const supabase = createSupabaseAdmin();
+  const { data, error } = await supabase
+    .from("customer_news")
+    .select("*")
+    .eq("is_active", true)
+    .eq("show_on_home", true)
+    .order("updated_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    if (isMissingShowOnHomeColumnError(error)) return null;
+    throw error;
+  }
+  if (!data) return null;
+  return mapRow(data as NewsRow);
 }
 
 /** Paginated active news for /notice. */
@@ -312,41 +361,61 @@ export async function createCustomerNews(
     image_url: null,
   };
 
+  const showOnHome = input.showOnHome === true;
   const supabase = createSupabaseAdmin();
   const fullRow: Record<string, unknown> = {
     title,
     content: input.content ?? "",
     ...mediaFields,
     is_active: input.isActive !== false,
+    show_on_home: showOnHome,
   };
 
-  let { data, error } = await supabase
-    .from("customer_news")
-    .insert(fullRow)
-    .select("*")
-    .single();
+  const legacyBase = buildLegacyImageOnlyRow({
+    title,
+    content: input.content ?? "",
+    is_active: input.isActive !== false,
+    media_url: (mediaFields.media_url as string | null) ?? null,
+    media_type: (mediaFields.media_type as string | null) ?? null,
+    image_url: (mediaFields.image_url as string | null) ?? null,
+  });
 
-  // DB still on image_url-only schema (customer-news-media.sql not applied).
-  if (error && isMissingMediaColumnError(error)) {
-    const legacy = buildLegacyImageOnlyRow({
-      title,
-      content: input.content ?? "",
-      is_active: input.isActive !== false,
-      media_url: (mediaFields.media_url as string | null) ?? null,
-      media_type: (mediaFields.media_type as string | null) ?? null,
-      image_url: (mediaFields.image_url as string | null) ?? null,
-    });
-    const retry = await supabase
+  const candidates: Record<string, unknown>[] = [
+    fullRow,
+    { ...legacyBase, show_on_home: showOnHome },
+    (() => {
+      const { show_on_home: _omit, ...rest } = fullRow;
+      return rest;
+    })(),
+    legacyBase,
+  ];
+
+  let data: NewsRow | null = null;
+  let error: unknown = null;
+
+  for (const row of candidates) {
+    const result = await supabase
       .from("customer_news")
-      .insert(legacy)
+      .insert(row)
       .select("*")
       .single();
-    data = retry.data;
-    error = retry.error;
+    data = (result.data as NewsRow | null) ?? null;
+    error = result.error;
+    if (!error) break;
+    if (
+      !isMissingMediaColumnError(error) &&
+      !isMissingShowOnHomeColumnError(error)
+    ) {
+      break;
+    }
   }
 
   if (error) throw error;
-  const item = mapRow(data as NewsRow);
+  if (!data) throw new Error("소식 저장에 실패했습니다.");
+  const item = mapRow(data);
+  if (showOnHome) {
+    await clearOtherHomeFeatured(item.id);
+  }
   revalidateNewsPages(item.id);
   return item;
 }
@@ -366,6 +435,9 @@ export async function updateCustomerNews(
   }
   if (typeof input.content === "string") patch.content = input.content;
   if (typeof input.isActive === "boolean") patch.is_active = input.isActive;
+  if (typeof input.showOnHome === "boolean") {
+    patch.show_on_home = input.showOnHome;
+  }
 
   const mediaFields = normalizeMediaFields(input);
   if (mediaFields) Object.assign(patch, mediaFields);
@@ -383,6 +455,9 @@ export async function updateCustomerNews(
       ...patch,
       ...mediaFields,
     });
+    if (typeof input.showOnHome === "boolean") {
+      legacyPatch.show_on_home = input.showOnHome;
+    }
     const retry = await supabase
       .from("customer_news")
       .update(legacyPatch)
@@ -393,8 +468,28 @@ export async function updateCustomerNews(
     error = retry.error;
   }
 
+  if (error && isMissingShowOnHomeColumnError(error)) {
+    const { show_on_home: _omit, ...withoutHome } = patch;
+    if (Object.keys(withoutHome).length === 0) {
+      throw new Error(
+        "홈 대표 소식 기능을 쓰려면 supabase/customer-news-featured.sql 을 실행해 주세요."
+      );
+    }
+    const retry = await supabase
+      .from("customer_news")
+      .update(withoutHome)
+      .eq("id", id)
+      .select("*")
+      .single();
+    data = retry.data;
+    error = retry.error;
+  }
+
   if (error) throw error;
   const item = mapRow(data as NewsRow);
+  if (input.showOnHome === true) {
+    await clearOtherHomeFeatured(item.id);
+  }
   revalidateNewsPages(item.id);
   return item;
 }

@@ -3,19 +3,25 @@ import HeroCarousel from "@/components/home/HeroCarousel";
 import HandlingScroll from "@/components/home/HandlingScroll";
 import StorageScroll from "@/components/home/StorageScroll";
 import HomeSearch from "@/components/home/HomeSearch";
+import HomeFeaturedNews from "@/components/home/HomeFeaturedNews";
 import { normalizeHomeSectionOrder } from "@/lib/home-section-order";
 import {
   getVisibleHomeHandlingPreviews,
   getVisibleHomeStoragePreviews,
 } from "@/lib/home-card-sync";
+import type { CustomerNewsItem } from "@/lib/customer-news";
 import type { SiteContent } from "@/lib/types";
 import { Fragment } from "react";
 
 interface HomeSectionsProps {
   content: SiteContent;
+  featuredNews?: CustomerNewsItem | null;
 }
 
-export default function HomeSections({ content }: HomeSectionsProps) {
+export default function HomeSections({
+  content,
+  featuredNews = null,
+}: HomeSectionsProps) {
   const order = normalizeHomeSectionOrder(content.homeSectionOrder);
   const visibleHandlingPreviews = getVisibleHomeHandlingPreviews(content);
   const visibleStoragePreviews = getVisibleHomeStoragePreviews(content);
@@ -38,6 +44,7 @@ export default function HomeSections({ content }: HomeSectionsProps) {
                   storageGuides={content.storageGuides}
                   faqItems={content.faqItems}
                 />
+                <HomeFeaturedNews item={featuredNews} />
                 <HandlingScroll previews={visibleHandlingPreviews} />
               </Fragment>
             );
