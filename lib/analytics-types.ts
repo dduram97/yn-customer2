@@ -1,10 +1,11 @@
-export type AnalyticsPeriod = "today" | "7d" | "30d" | "all";
+export type AnalyticsPeriod = "day" | "month" | "year";
 
 export type VisitEventType =
   | "page_view"
   | "menu_click"
   | "category_click"
-  | "section_view";
+  | "section_view"
+  | "product_interest";
 
 export type ConversionStep =
   | "search"
@@ -12,48 +13,16 @@ export type ConversionStep =
   | "product_view"
   | "purchase";
 
-export interface SearchLogEntry {
-  id: string;
-  query: string;
-  searchedAt: string;
-  sessionId: string;
-  clicked: boolean;
-  clickedTarget?: string;
-  clickedHref?: string;
-  clickedCategory?: string;
-  clickedAt?: string;
+export interface TrendPoint {
+  key: string;
+  label: string;
+  value: number;
 }
 
-export interface VisitLogEntry {
-  id: string;
-  visitedAt: string;
-  sessionId: string;
-  eventType: VisitEventType;
-  page: string;
-  referrer?: string;
-  menuLabel?: string;
-  categoryLabel?: string;
-  categoryType?: string;
-}
-
-export interface ConversionLogEntry {
-  id: string;
-  sessionId: string;
-  timestamp: string;
-  step: ConversionStep;
-  searchQuery?: string;
-  contentId?: string;
-  contentTitle?: string;
-  page?: string;
-  productId?: string;
-  orderId?: string;
-  metadata?: Record<string, string>;
-}
-
-export interface AnalyticsData {
-  searchLogs: SearchLogEntry[];
-  visitLogs: VisitLogEntry[];
-  conversionLogs: ConversionLogEntry[];
+export interface DonutSegment {
+  label: string;
+  value: number;
+  percent: number;
 }
 
 export interface SearchRankingRow {
@@ -61,28 +30,66 @@ export interface SearchRankingRow {
   query: string;
   count: number;
   percent: number;
+  successCount: number;
+  failCount: number;
   lastSearchedAt: string;
   clickRate: number;
 }
 
 export interface SearchAnalyticsSummary {
   period: AnalyticsPeriod;
+  anchorDate: string;
   totalSearches: number;
-  top5: { label: string; percent: number }[];
+  successSearches: number;
+  failSearches: number;
+  donut: DonutSegment[];
   rankings: SearchRankingRow[];
+  trend: TrendPoint[];
+}
+
+export interface RankingRow {
+  rank: number;
+  label: string;
+  count: number;
+  /** Optional path for page rankings */
+  page?: string;
+}
+
+export interface SeafoodInterestRow {
+  rank: number;
+  seafood: string;
+  visitors: number;
+  percent: number;
 }
 
 export interface VisitorAnalyticsSummary {
   period: AnalyticsPeriod;
+  /** Anchor date used for the period window (Asia/Seoul). */
+  anchorDate: string;
+  /** Distinct session_id with page_view in period */
+  totalVisitors: number;
+  newVisitors: number;
+  returningVisitors: number;
   todayVisitors: number;
-  topPages: { rank: number; label: string; page: string; count: number }[];
-  popularContent: { rank: number; label: string; count: number }[];
+  donut: DonutSegment[];
+  trend: TrendPoint[];
+  /** Unique visitors per page (page_view, DISTINCT session_id) */
+  topPages: RankingRow[];
+  /** Unique visitors for handling/cleaning content */
+  topHandling: RankingRow[];
+  /** Unique visitors for storage content */
+  topStorage: RankingRow[];
+  /** Combined popular content (handling + storage + section views) */
+  popularContent: RankingRow[];
+  /** Popular seafood interest (product_interest, DISTINCT session_id) */
+  seafoodInterest: SeafoodInterestRow[];
 }
 
 export type TrackPayload =
   | {
       type: "search";
       query: string;
+      hasResults: boolean;
     }
   | {
       type: "search_click";
@@ -112,6 +119,11 @@ export type TrackPayload =
       page: string;
       categoryLabel: string;
       categoryType: string;
+    }
+  | {
+      type: "product_interest";
+      page: string;
+      seafood: string;
     }
   | {
       type: "conversion";

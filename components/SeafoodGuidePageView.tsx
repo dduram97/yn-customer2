@@ -9,6 +9,7 @@ import {
   resolveGuidePageTitle,
 } from "@/lib/guide-display";
 import { readGuidePreview } from "@/lib/guide-preview";
+import { trackProductInterest } from "@/lib/analytics-client";
 import type { GuideContentBlock, GuideStep } from "@/lib/types";
 
 interface SeafoodGuidePageViewProps {
@@ -83,6 +84,12 @@ export default function SeafoodGuidePageView({
     }
     setPreviewReady(true);
   }, [isPreview, kind, slug]);
+
+  useEffect(() => {
+    if (isPreview || isHidden) return;
+    const pageKind = kind === "eating" ? "cleaning" : "storage";
+    trackProductInterest(name, `/seafood/${slug}/${pageKind}`);
+  }, [isPreview, isHidden, kind, name, slug]);
 
   if (!previewReady) {
     return <p className="text-[15px] text-body">미리보기를 불러오는 중...</p>;

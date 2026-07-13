@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   HOME_SECTION_LABELS,
@@ -14,6 +14,7 @@ import {
 import GuideTemplatesAdminSection from "@/components/admin/GuideTemplatesAdminSection";
 import SearchAnalyticsPanel from "@/components/admin/SearchAnalyticsPanel";
 import VisitorAnalyticsPanel from "@/components/admin/VisitorAnalyticsPanel";
+import CustomerNewsAdminSection from "@/components/admin/CustomerNewsAdminSection";
 import type { HomeSectionId, SiteContent } from "@/lib/types";
 import { isVideoMedia, resolveMediaDisplaySrc } from "@/lib/media";
 import {
@@ -40,6 +41,14 @@ export default function AdminPage() {
   const [activeSection, setActiveSection] = useState<SectionKey>("site");
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
+  const newsDraftSaverRef = useRef<(() => Promise<boolean>) | null>(null);
+
+  const registerNewsDraftSaver = useCallback(
+    (saver: (() => Promise<boolean>) | null) => {
+      newsDraftSaverRef.current = saver;
+    },
+    []
+  );
 
   useEffect(() => {
     contentRef.current = content;
@@ -81,6 +90,19 @@ export default function AdminPage() {
    * Callers receive preview URL immediately, then the final Storage URL.
    */
   const uploadImage = (file: File, onUploaded: (url: string) => void) => {
+    const maxBytes = 50 * 1024 * 1024;
+    if (file.size > maxBytes) {
+      console.error("[upload] 파일이 50MB를 초과합니다.", {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+      });
+      setMessage(
+        `파일이 너무 큽니다 (${formatBytes(file.size)}). 최대 50MB까지 업로드할 수 있습니다.`
+      );
+      return;
+    }
+
     const { objectUrl, previewUrl } = createMediaPreviewUrl(file);
     onUploaded(previewUrl);
 
@@ -115,14 +137,38 @@ export default function AdminPage() {
         });
         uploadMs = Math.round(performance.now() - uploadStarted);
 
+        const responseText = await response.text();
+        let data: { url?: string; error?: string; detail?: string } = {};
+        try {
+          data = responseText ? (JSON.parse(responseText) as typeof data) : {};
+        } catch {
+          data = {};
+        }
+
         if (!response.ok) {
-          console.error(`[upload] Storage 업로드 실패 ${uploadMs}ms`);
+          console.error(
+            `[upload] Storage 업로드 실패 ${uploadMs}ms`,
+            {
+              status: response.status,
+              statusText: response.statusText,
+              body: responseText,
+              error: data.error,
+              detail: data.detail,
+              file: {
+                name: uploadFile.name,
+                type: uploadFile.type,
+                size: uploadBytes,
+              },
+            }
+          );
           return;
         }
 
-        const data = (await response.json()) as { url?: string };
         if (!data.url) {
-          console.error("[upload] Storage 응답에 url이 없습니다.");
+          console.error("[upload] Storage 응답에 url이 없습니다.", {
+            status: response.status,
+            body: responseText,
+          });
           return;
         }
 
@@ -163,6 +209,24 @@ export default function AdminPage() {
     if (pendingUploadsRef.current.size > 0) {
       setMessage("미디어 업로드 완료 대기 중...");
       await Promise.all([...pendingUploadsRef.current]);
+    }
+
+    // Persist open news draft before site content (users often tap this button).
+    if (newsDraftSaverRef.current) {
+      try {
+        const newsSaved = await newsDraftSaverRef.current();
+        if (newsSaved) {
+          setMessage("소식 저장 완료. 사이트 변경사항 저장 중...");
+        }
+      } catch (error) {
+        setMessage(
+          error instanceof Error
+            ? error.message
+            : "소식 저장에 실패했습니다. 소식 카드의 「소식 저장」을 확인해 주세요."
+        );
+        setSaving(false);
+        return;
+      }
     }
 
     // Re-read after uploads may have patched contentRef
@@ -288,6 +352,11 @@ export default function AdminPage() {
               onChange={(homeSectionOrder) =>
                 setContent({ ...content, homeSectionOrder })
               }
+            />
+
+            <CustomerNewsAdminSection
+              uploadImage={uploadImage}
+              registerDraftSaver={registerNewsDraftSaver}
             />
 
             <p className="pt-2 text-[15px] font-bold text-black">홈 배너</p>

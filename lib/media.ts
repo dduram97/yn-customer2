@@ -65,12 +65,38 @@ export function isAllowedMediaFile(filename: string, mimeType?: string): boolean
   return mimeType.startsWith("image/") || mimeType.startsWith("video/");
 }
 
+const EXT_CONTENT_TYPES: Record<string, string> = {
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+  ".webp": "image/webp",
+  ".gif": "image/gif",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".mov": "video/quicktime",
+  ".m4v": "video/x-m4v",
+  ".ogg": "video/ogg",
+};
+
+/** Prefer browser MIME; fall back to extension (some devices send empty type for mp4). */
+export function resolveUploadContentType(file: {
+  name: string;
+  type: string;
+}): string {
+  if (file.type && file.type !== "application/octet-stream") {
+    return file.type;
+  }
+  const ext = file.name.slice(file.name.lastIndexOf(".")).toLowerCase();
+  return EXT_CONTENT_TYPES[ext] || file.type || "application/octet-stream";
+}
+
 export function inferMediaTypeFromUrl(
   url: string,
   explicit?: "image" | "gif" | "video"
 ): "image" | "gif" | "video" {
   if (explicit) return explicit;
-  if (url.toLowerCase().endsWith(".gif")) return "gif";
+  const ext = getMediaPathExtension(url);
+  if (ext === ".gif") return "gif";
   if (isVideoMedia(url)) return "video";
   return "image";
 }

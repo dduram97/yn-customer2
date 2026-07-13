@@ -4,6 +4,11 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { trackAnalytics } from "@/lib/analytics-client";
 
+/**
+ * Fires page_view (and guide section_view) on every customer route change,
+ * including `/`, `/guide/how-to-eat`, `/guide/storage`, `/tracking`, seafood details.
+ * Persisted via POST /api/analytics/track → analytics_visits.
+ */
 export default function AnalyticsTracker() {
   const pathname = usePathname();
   const lastPathRef = useRef<string | null>(null);

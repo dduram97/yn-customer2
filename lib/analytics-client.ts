@@ -50,10 +50,17 @@ export function trackSectionView(
   trackAnalytics({ type: "section_view", page, categoryLabel, categoryType });
 }
 
-export function trackSearchQuery(query: string) {
+/** Track interest when a visitor opens a seafood cleaning/storage detail page. */
+export function trackProductInterest(seafood: string, page: string) {
+  const name = seafood.trim();
+  if (!name) return;
+  trackAnalytics({ type: "product_interest", page, seafood: name });
+}
+
+export function trackSearchQuery(query: string, hasResults: boolean) {
   const trimmed = query.trim();
   if (!trimmed) return;
-  trackAnalytics({ type: "search", query: trimmed });
+  trackAnalytics({ type: "search", query: trimmed, hasResults });
 }
 
 export function trackSearchResultClick(

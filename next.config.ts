@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+/** Admin media uploads (GIF / mp4 / webm) often exceed the default 10MB body buffer. */
+const ADMIN_UPLOAD_MAX_BODY = "50mb";
+
 function getSupabaseImagePatterns(): NonNullable<
   NextConfig["images"]
 >["remotePatterns"] {
@@ -30,6 +33,8 @@ const nextConfig: NextConfig = {
       dynamic: 30,
       static: 180,
     },
+    // Middleware clones request bodies; default 10MB truncates video FormData.
+    middlewareClientMaxBodySize: ADMIN_UPLOAD_MAX_BODY,
   },
 };
 

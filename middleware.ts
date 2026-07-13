@@ -26,5 +26,12 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/api/admin/:path*"],
+  matcher: [
+    "/admin/:path*",
+    /*
+     * Exclude /api/admin/upload from middleware so large video bodies are not
+     * cloned/truncated (default 10MB). Auth is enforced inside the upload route.
+     */
+    "/api/admin/((?!upload$).*)",
+  ],
 };

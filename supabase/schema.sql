@@ -62,3 +62,8 @@ create policy "uploads_service_delete"
   for delete
   to service_role
   using (bucket_id = 'uploads');
+
+-- Visitor / search analytics: see supabase/analytics.sql
+-- Customer news (소식): see supabase/customer-news.sql
+-- Customer news media fields: see supabase/customer-news-media.sql
+-- Storage uploads bucket (50MB videos): see supabase/storage-uploads.sql

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import type { ContactInfo } from "@/lib/types";
 import { cn, formatPhoneForTel } from "@/lib/utils";
 import { trackMenuClick } from "@/lib/analytics-client";
@@ -28,6 +28,7 @@ const NAV_ITEMS: NavItem[] = [
 
 export default function ActionBar({ contactInfo }: { contactInfo: ContactInfo }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isInquiryOpen, setIsInquiryOpen] = useState(false);
 
   return (
@@ -86,7 +87,13 @@ export default function ActionBar({ contactInfo }: { contactInfo: ContactInfo })
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => trackMenuClick(item.label, pathname)}
+                onClick={() => {
+                  trackMenuClick(item.label, pathname);
+                  // Bust client router cache so newly published news appears.
+                  if (item.href === "/notice") {
+                    router.refresh();
+                  }
+                }}
                 className={className}
               >
                 <NavIcon type={item.icon} />

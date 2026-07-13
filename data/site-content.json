@@ -2,27 +2,27 @@
   "faqItems": [
     {
       "id": "delivery-time",
-      "answer": "월~금, 일요일 주문건 다음날 도착 보장\n토요일 배송휴무\n\n공휴일 배송문의는 유선문의나 \n네이버 스토어 팝업 배송공지 확인 부탁드립니다.",
+      "answer": "📦 월~금, 일요일 주문건은 다음날 도착\n토요일은 배송휴무일 입니다\n\n공휴일 배송문의는 번거로우시더라도\n유선문의나 네이버 스토어 팝업 배송공지로\n확인 부탁드립니다! 🙇‍♀️",
       "question": "Q. 배송은 며칠 걸리나요?"
     },
     {
       "id": "tracking",
-      "answer": "배송당일 오후 10시 이전 도착 건은 택배사 기준 정상 배송으로 처리되어\n오후 10시 이전 수취 건은 별도 조치 어려운 점 양해부탁드립니다.",
+      "answer": "배송당일 오후 10시 이전 도착 건은 \n택배사 기준 정상 배송으로 처리되어\n오후 10시 이전 수취 건은 별도 조치가\n어려운 점 양해부탁드립니다.🙂‍↕️",
       "question": "Q. 오후인데 배송이 안와요."
     },
     {
       "id": "storage",
-      "answer": "배송 시간은 저희측에서 별도 지정 불가하며 지역별 택배사 물량 및 \n기사님 일정에 따라 달라질 수 있습니다.\n\n정확한 배송시간은 배송 당일 기사님께서 발송하는 안내문자로 확인 부탁드립니다.",
+      "answer": "배송 시간은 저희측에서 별도 지정 불가하며\n지역별 택배사 물량 및 기사님 일정에 따라 \n달라질 수 있습니다.\n\n정확한 배송시간은 배송 당일 기사님께서 \n발송하는 안내문자로 확인 부탁드립니다.🙂‍↕️",
       "question": "Q. 배송시간 알려주세요."
     },
     {
       "id": "reorder",
-      "answer": "네, 주문일로부터 일주일 이내의 날짜로 배송일 지정이 가능합니다.\n\n[네이버 스마트스토어 주문 시]\n주문 단계의 배송메모란에 원하시는 배송일을 기재해 주세요.\n\n[유선 주문 시]\n희망 배송일을 미리 말씀해 주신 뒤, 문자로 \n아래 내용을 보내주시면 됩니다.\n\n희망 배송일\n성함\n전화번호\n배송지 주소\n주문 상품\n입금자명",
+      "answer": "네, 주문일로부터 일주일 이내의 날짜로 \n배송일 지정이 가능합니다.\n\n[네이버 스마트스토어 주문 시]\n주문 단계의 배송메모란에 원하시는 \n배송일을 기재해 주세요.\n\n[유선 주문 시]\n희망 배송일을 미리 말씀해 주신 뒤 문자로\n아래 내용을 입력해 보내주시면 됩니다.\n\n희망 배송일\n성함\n전화번호\n배송지 주소\n주문 상품\n입금자명",
       "question": "Q. 배송일을 지정할 수 있나요?"
     },
     {
       "id": "refund",
-      "answer": "수령직후 섭취하지마시고 즉시 상품 사진과 함께 카카오톡 또는 전화로 연락해 주세요.",
+      "answer": "수령직후 섭취하지마시고 영업시간 관계없이\n즉시 상품 사진과 함께 카카오톡 또는 전화로\n연락주시면 확인 후 조치하겠습니다!",
       "question": "Q. 상품에 문제가 있으면 어떻게 하나요?"
     }
   ],
@@ -59,7 +59,7 @@
     "phone": "0507-1351-9511",
     "address": "경상북도 포항시 북구 칠성로 64",
     "kakaoUrl": "http://pf.kakao.com/_wQXIX",
-    "description": "❝신념 하나로 동해안 포항 바다와 함께 살아온 가족❞\n⛴️ 선주 아버지 • 🐟 포항 죽도어시장 어머니\n🏠 구룡포 38년 전통 덕장 이모부의 기준을 잇고 있습니다.\n\n저희 가족은 오랜 시간 포항 바다와 함께하며\n좋은 수산물을 고르는 기준과 정직함을 배워왔습니다.\n\n오프라인 매장에서 오랜 시간 쌓아온 신뢰와\n선주 아버지가 직접 만나는 산지의 가치,\n이모부가 지켜온 구룡포 덕장의 기준을 그대로 담아\n더 많은 고객님께 전해드리기 위해 \n딸인 제가 온라인 매장을 운영하고 있습니다.\n\n좋은 원물을 정직하게 고르고,\n바르게 손질하고 정성껏 포장하여\n받아보시는 순간까지 만족하실 수 있도록 \n늘 최선을 다하겠습니다.\n\n감사합니다.",
+    "description": "❝신념 하나로 동해안 포항 바다와 함께 살아온 가족❞\n⛴️ 대공호 선주 아버지 • 🐟 포항 죽도어시장 어머니\n🏠 구룡포에서 38년간 대과메기 덕장을 지켜온\n       이모부의 기준을 잇고 있습니다.\n\n저희 가족은 오랜 시간 포항 바다와 함께하며\n좋은 수산물을 고르는 기준과 정직함을 배워왔습니다.\n\n오프라인 매장에서 오랜 시간 쌓아온 신뢰와\n선주 아버지가 직접 만나는 산지의 가치,\n이모부가 지켜온 ‘전통방식 대과메기’의 기준을 \n더 많은 고객님들께 전해드리기 위해 \n딸인 제가 온라인 스토어를 운영하고 있습니다.\n\n좋은 원물을 정직하게 고르고,\n바르게 손질하고 정성껏 포장하여\n받아보시는 순간까지 만족하실 수 있도록 \n늘 최선을 다하겠습니다.\n\n감사합니다.",
     "businessHours": "연중무휴 06:00 ~ 18:00"
   },
   "pageContent": {
@@ -519,7 +519,7 @@
         },
         {
           "id": "media-1783693525108-hwjnt",
-          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783693539431-5f2rukh4vq.png",
+          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783753352276-6n6ch5qitc2.webp",
           "type": "media",
           "mediaType": "image"
         },
@@ -570,7 +570,7 @@
       ],
       "summary": "버터 구이로 고소한 맛을 즐기세요",
       "thawing": "냉동 전복은 냉장실에서 8시간 해동",
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783693197282-s9fbtti572l.jpeg",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783753253255-v9puw56zmg.webp",
       "eatingOrder": [
         "전복을 십자로 칼집 내기",
         "버터와 마늘로 앞뒤 구워주기",
@@ -603,15 +603,17 @@
           "id": "block-prep-info",
           "type": "text",
           "style": {},
-          "title": "세척",
-          "content": "<p>흐르는 찬물에 백고동을 넣고 솔이나 손으로 껍질을 깨끗하게 문질러 씻어주세요.</p><p>백고동은 <strong>'히스친'</strong>이라는 점액이 있으며 <strong><mark>신선할수록 점액이 많이 나옵니다.</mark></strong></p><p>해당 성분은 <strong><mark>피부에 좋은 성분</mark></strong>으로 드셔도 <strong>무해합니다.</strong></p><p>(백고동 <strong>껍데기는 잘 부서짐으로 세척시 손을 조심</strong>해주세요!)</p>"
+          "title": "세척법",
+          "content": "<p>흐르는 찬물에 백고동을 넣고 솔이나 손으로 껍질을 깨끗하게 문질러 씻어주세요.</p><p>백고동은 <strong>'히스친'</strong>이라는 점액이 있으며 <strong><mark>신선할수록 점액이 많이 나옵니다.</mark></strong></p><p>해당 성분은 <strong><mark>피부에 좋은 성분</mark></strong>으로 드셔도 <strong>무해합니다.</strong></p><p>(백고동 <strong>껍데기는 잘 부서짐으로 세척시 손을 조심</strong>해주세요!)</p>",
+          "titleStyle": {}
         },
         {
           "id": "block-preparation",
           "type": "text",
           "style": {},
-          "title": "조리",
-          "content": "<p><strong>백고동 찜 :</strong> 찜기 냄비에<strong> </strong>물을 붓고 물이 끓으면 소주 반 잔(또는 청주)을 넣고 채반 위에 백고동을 올려 <br>뚜껑을 덮고 <strong>10분~15분</strong>을 찐 뒤, 불을 끄고 <strong>뜸을 5분</strong> 들여주시면 완성</p><p></p><p><strong>백고동 삶기:  </strong>냄비에<strong> </strong>물을 붓고 물이 끓으면 소주 반 잔(또는 청주)을 넣고 백고동을 넣어 <br>뚜껑을 덮고 <strong>10분~15분</strong> 삶은 뒤, 불을 끄고 <strong>뜸을 5분 </strong>들여주시면 완성</p><p></p><p>🍯 <strong>꿀팁</strong>: 생물발송으로 소주반잔, 청주는 <strong>굳이 넣지 않으셔도 무방</strong>합니다.</p>"
+          "title": "조리법",
+          "content": "<p><strong>백고동 찜 :</strong> 찜기 냄비에<strong> </strong>물을 붓고 물이 끓으면 소주 반 잔(또는 청주)을 넣고 채반 위에 백고동을 올려 <br>뚜껑을 덮고 <strong>10분~15분</strong>을 찐 뒤, 불을 끄고 <strong>뜸을 5분</strong> 들여주시면 완성</p><p></p><p><strong>백고동 삶기:  </strong>냄비에<strong> </strong>물을 붓고 물이 끓으면 소주 반 잔(또는 청주)을 넣고 백고동을 넣어 <br>뚜껑을 덮고 <strong>10분~15분</strong> 삶은 뒤, 불을 끄고 <strong>뜸을 5분 </strong>들여주시면 완성</p><p></p><p>🍯 <strong>꿀팁</strong>: 생물발송으로 소주반잔, 청주는 <strong>굳이 넣지 않으셔도 무방</strong>합니다.</p>",
+          "titleStyle": {}
         },
         {
           "id": "media-1783695512528-l2xzf",
@@ -624,14 +626,16 @@
           "type": "text",
           "style": {},
           "title": "맛있게 드시는 법",
-          "content": "<p>[백고동 된장찌개]</p><p>살짝 데친 백고동을 먹기좋은 크기로 썰어</p><p>된장찌개를 끓일때 함께 넣어주시면 재밌는 식감의 백고동 된장찌개 완성!</p>"
+          "content": "<p>[백고동 된장찌개]</p><p>살짝 데친 백고동을 먹기좋은 크기로 썰어</p><p>된장찌개를 끓일때 함께 넣어주시면 재밌는 식감의 백고동 된장찌개 완성!</p>",
+          "titleStyle": {}
         },
         {
           "id": "block-pairing",
           "type": "text",
           "style": {},
           "title": "추천조합",
-          "content": "<p>초장, 참기름, 어묵, 과메기</p>"
+          "content": "<p>초장, 참기름, 어묵, 과메기</p>",
+          "titleStyle": {}
         }
       ],
       "summary": "",
@@ -719,7 +723,7 @@
         "직사광선 피해 보관",
         "해동 후 당일 섭취 권장"
       ],
-      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783706986939-jr5r5yckfsn.webp",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783766475958-x1p9jfiys9.jpeg",
       "shelfLife": "냉동 3개월",
       "temperature": "냉동",
       "storageMethod": "밀봉 후 냉동 보관",
@@ -749,6 +753,12 @@
           "titleStyle": {}
         },
         {
+          "id": "media-1783752764755-tnnpg",
+          "url": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783752911332-y954jmirhxj.webp",
+          "type": "media",
+          "mediaType": "image"
+        },
+        {
           "id": "block-storage-method",
           "type": "text",
           "style": {},
@@ -771,7 +781,7 @@
         "냄새가 이상하면 섭취 금지",
         "조리 전 충분히 씻어 사용"
       ],
-      "imageUrl": "",
+      "imageUrl": "https://hzvnmkjekqiarweybyom.supabase.co/storage/v1/object/public/uploads/1783753022902-irfur0kc7q.webp",
       "heroMuted": false,
       "shelfLife": "냉장 2~3일 / 냉동 1개월",
       "temperature": "냉장/냉동",

@@ -34,11 +34,11 @@ export default function HomeSearch(props: HomeSearchProps) {
     const timer = window.setTimeout(() => {
       if (lastTrackedQueryRef.current === trimmed) return;
       lastTrackedQueryRef.current = trimmed;
-      trackSearchQuery(trimmed);
+      trackSearchQuery(trimmed, results.length > 0);
     }, 700);
 
     return () => window.clearTimeout(timer);
-  }, [query]);
+  }, [query, results]);
 
   const handleResultClick = (result: SearchResult) => {
     const currentQuery = query.trim();
